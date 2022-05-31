@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_31_130831) do
+ActiveRecord::Schema.define(version: 2022_05_31_145031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,76 @@ ActiveRecord::Schema.define(version: 2022_05_31_130831) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "type"
+    t.string "name"
+    t.string "address"
+    t.string "duration"
+    t.string "description"
+    t.integer "price"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "step_id", null: false
+    t.index ["step_id"], name: "index_events_on_step_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "content"
+    t.date "date"
+    t.bigint "step_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["step_id"], name: "index_notes_on_step_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "theme"
+    t.string "profil"
+    t.string "total_budget"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.string "city"
+    t.bigint "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_steps_on_project_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "description"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "todolist_id", null: false
+    t.index ["todolist_id"], name: "index_tasks_on_todolist_id"
+  end
+
+  create_table "todolists", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "project_id", null: false
+    t.index ["project_id"], name: "index_todolists_on_project_id"
+  end
+
+  create_table "travelers", force: :cascade do |t|
+    t.string "privilege"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.index ["project_id"], name: "index_travelers_on_project_id"
+    t.index ["user_id"], name: "index_travelers_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -59,4 +129,11 @@ ActiveRecord::Schema.define(version: 2022_05_31_130831) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "steps"
+  add_foreign_key "notes", "steps"
+  add_foreign_key "steps", "projects"
+  add_foreign_key "tasks", "todolists"
+  add_foreign_key "todolists", "projects"
+  add_foreign_key "travelers", "projects"
+  add_foreign_key "travelers", "users"
 end
