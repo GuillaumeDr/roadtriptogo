@@ -20,7 +20,7 @@
   color: white;
 }
 
-.btn {
+.new-btn {
     color: #8A8635;
     border: 1px solid #8A8635;
     padding: 6px 18px;
@@ -28,8 +28,25 @@
     font-weight: lighter;
     opacity: 0.6;
     transition: opacity 0.3s ease;
-  .btn:hover {
-    opacity: 1;
-    background-color: #8A8635;
-    color: white;
+}
+
+ .new-btn:hover {
+   opacity: 1;
+   background-color: #8A8635;
+   color: white;
+}
+
+.btn-principal{
+  color: white;
+  background-color: #8A8635;
+  padding: 6px 18px;
+  border-radius: 50px;
+  border: 1px solid #8A8635;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.btn-principal:hover {
+  background: #7d792e;
+  color: white;
 }

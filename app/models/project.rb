@@ -7,6 +7,6 @@ class Project < ApplicationRecord
 
   PROJECT_SEASON = ['automne', 'hiver', 'printemps', 'été']
   PROJECT_TRANSPORT = ['voiture', 'train', 'avion']
-  PROJECT_THEME = ['nature', 'gastronomy', 'culture']
-  PROJECT_PROFIL = ['backpack', 'touriste', 'confortable', 'luxe']
+  PROJECT_THEME = ['nature', 'gastronomie', 'culture']
+  PROJECT_PROFIL = ['Backpack €', 'Touriste €€', 'Confortable €€€', 'Luxe €€€€']
 end
