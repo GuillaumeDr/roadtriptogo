@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 55px;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 32rem;
+}
+
+.banner {
+  background-size: cover;
+}
+
+.banner h4 {
+  margin: 0;
+  color: white;
+  opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}

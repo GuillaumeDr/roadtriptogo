@@ -1,0 +1,74 @@
+ <html>
+  <head>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+ </html>
+
+<div class="sidebar">
+  <div class="logo-details">
+    <img src= "app/assets/images/RoadtripToGo_petit.png" alt="Logo" class="avatar icon">
+    <%# <i class='bx bxl-c-plus-plus icon'></i> %>
+      <div class="logo_name">Roadtrip To Go</div>
+      <i class='bx bx-menu' id="btn" ></i>
+  </div>
+  <ul class="nav-list">
+    <li>
+      <a href="#">
+        <img src= "<%=current_user.photo.key %>" alt="profileImg" class="avatar">
+        <span class="links_name"><%= current_user.first_name %> <%= current_user.last_name %></span>
+      </a>
+        <span class="tooltip"><%= current_user.first_name %> <%= current_user.last_name %></span>
+    </li>
+    <li>
+        <i class='bx bx-search' ></i>
+        <input type="text" placeholder="    Search...">
+        <span class="tooltip">Search</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">My projects</span>
+      </a>
+        <span class="tooltip">My projects</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-user' ></i>
+        <span class="links_name">CoTravelers</span>
+      </a>
+      <span class="tooltip">CoTravelers</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-share-alt' ></i>
+        <span class="links_name">Community</span>
+      </a>
+      <span class="tooltip">Community</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-map' ></i>
+        <span class="links_name">Explore the map</span>
+      </a>
+      <span class="tooltip">Explore the map</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-cog' ></i>
+        <span class="links_name">Setting</span>
+      </a>
+      <span class="tooltip">Setting</span>
+    </li>
+    <li class="profile">
+      <i class='bx bx-log-out' id="log_out" ></i>
+    </li>
+  </ul>
+</div>
+<section class="home-section">
+    <div class="text">Dashboard</div>
+</section>
+</html>
+
+<script src="sidebar.js"></script>
