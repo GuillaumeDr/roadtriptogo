@@ -1,0 +1,12 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.input :season,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item fab fa-envira',
+              item_wrapper_tag: 'i',
+              input_html: {class: 'category-selector'},
+
+              collection: Project::PROJECT_SEASON %>
+  <%= f.submit class: "btn-success" %>
+<% end %>
