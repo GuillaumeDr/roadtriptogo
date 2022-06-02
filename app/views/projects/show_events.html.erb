@@ -1,0 +1,15 @@
+<%= render 'shared/sidebar' %>
+<%= render 'shared/mininavbar' %>
+
+ <%= simple_form_for(event) do |f| %>
+    <%= f.input :types, collection: Event::EVENT_TYPE, :prompt => 'Select One' %> %>
+    <%= f.input :name, label: "Size (cm)" %>
+    <%= f.input :address, label: "Address" %>
+    <%= f.input :duration, label: "Durée (jours)" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :price, label: "Prix (en €) " %>
+
+    <div class="d-grid gap-2">
+      <%= f.submit class: "btn btn-search" %>
+    </div>
+  <% end %>
