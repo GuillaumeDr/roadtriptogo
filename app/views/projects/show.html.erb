@@ -1,2 +1,43 @@
 <%= render 'shared/sidebar' %>
 <%= render 'shared/mininavbar' %>
+
+
+<div class="container">
+
+  <%= @project.name %>
+  <H2>Etapes:</H2>
+  <button type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa fa-plus"></i>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <%# <h1>Nouvelle étape:</h1> %>
+        <%= render './steps/form', project: @project, step: @step %>
+      </div>
+    </div>
+  </div>
+
+
+  <% @project.steps.each do |step| %>
+    <p>id : <%= step.id %> </p>
+    <p>city : <%= step.city %> </p>
+    <p>start date : <%= step.start_date %> </p>
+    <p>end date : <%= step.end_date %> </p>
+    <%= link_to project_step_path( @project, step), method: :delete do %>
+        <i class="fa fa-trash" ></i>
+     <% end %>
+    <%= link_to edit_project_step_path( @project, step) do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+  <% end %>
+
+
+</div>
+
+
+    <%= link_to newstep_path( @project) do %>
+      <i class="fa fa-plus"></i>
+    <% end %>

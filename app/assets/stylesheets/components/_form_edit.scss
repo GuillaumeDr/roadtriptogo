@@ -1,11 +1,10 @@
 .category-wrapper {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .category-item {
-  flex: 0 0 30%;
+  flex: 0 0 10%;
 }
 
 .category-selector {
@@ -17,45 +16,135 @@
   display: block;
   cursor: pointer;
   box-sizing: border-box;
-  width: 100%;
-  font-size: 12px;
+  width: 40px;
+  height: 40px;
+  font-size: 0px;
   text-align: left;
-  padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;
+  padding: 10px;
   background-color: white;
 }
 
-.category-selector:checked + label {
-  color: white !important;
+#project_season_automne + label {
+  background-image: url('envira-brands.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#project_season_automne:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
 }
 
 
-#snippet_category_automne + label {
-  color: #FD1015;
+#project_season_hiver + label {
+  background-image: url('snowflake-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#snippet_category_automne:checked + label {
-  background-color: #FD1015;
-  border-color: #FD1015;
+#project_season_hiver:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
+}
+
+#project_season_printemps + label {
+  background-image: url('seedling-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#project_season_printemps:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
+}
+
+#project_season_été + label {
+  background-image: url('sun-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#project_season_été:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
 }
 
 
-#snippet_category_hiver + label {
-  color: #FFC65A;
+//////////////////////////////////////////////
+#project_transport_voiture + label {
+  background-image: url('car-alt-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#snippet_category_hiver:checked + label {
-  background-color: #FFC65A;
-  border-color: #FFC65A;
+#project_transport_voiture:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
 }
 
 
-#snippet_category_printemps + label {
-  color: #62DDF5;
+#project_transport_train + label {
+  background-image: url('train-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#snippet_category_printemps:checked + label {
-  background-color: #62DDF5;
-  border-color: #62DDF5;
+#project_transport_train:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
+}
+
+#project_transport_avion + label {
+  background-image: url('plane-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#project_transport_avion:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
+}
+
+///////////////////////////////////////////
+#project_theme_nature + label {
+  background-image: url('mountain-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#project_theme_nature:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
+}
+
+#project_theme_gastronomie + label {
+  background-image: url('chief.png');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#project_theme_gastronomie:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
+}
+
+#project_theme_culture + label {
+  background-image: url('university-solid.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#project_theme_culture:checked + label {
+  border: 2px solid #D06224;
+  border-radius: 50%;
 }

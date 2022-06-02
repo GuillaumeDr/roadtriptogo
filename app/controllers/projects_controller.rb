@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @step = Step.new
   end
 
   def new
@@ -20,7 +21,7 @@ class ProjectsController < ApplicationController
       @traveler.privilege = "admin"
       @traveler.project_id = @project.id
       if @traveler.save
-        redirect_to new_project_step_path(@project)
+        redirect_to edit_project_path(@project)
       else
         render :new
       end
@@ -30,11 +31,13 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project.season = params[:season]
+    @project.save
   end
 
   def update
     @project.update(project_params)
-    redirect_to project_path(@project)
+    redirect_to new_project_step_path(@project)
   end
 
   def destroy
@@ -45,7 +48,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo)
+    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo, :season, :transport)
   end
 
   def set_project
