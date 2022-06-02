@@ -6,8 +6,8 @@ const initFlatpickr = () => {
       minDate: "today",
       mode: "range",
       showMonths: 2,
-      defaultDate: "array",
-      inline: true
+      inline: true,
+      static: true
   });
 }
 
