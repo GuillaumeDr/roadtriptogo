@@ -1,12 +1,47 @@
-<%= simple_form_for(@project) do |f| %>
-  <%= f.input :season,
-              as: :radio_buttons,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'category-wrapper',
-              item_wrapper_class: 'category-item fab fa-envira',
-              item_wrapper_tag: 'i',
-              input_html: {class: 'category-selector'},
+<div class="container-form">
+  <h3>Project details</h3>
+  <div class="d-flex justify-content-between">
+    <p style="font-size: 12px;">Please fill your information about your project</p>
+    <b style="font-size: 12px;">3/3</b>
+  </div>
+  <%= simple_form_for(@project) do |f| %>
+    <%= f.input :season,
+                as: :radio_buttons,
+                label: "Une saison :",
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper',
+                item_wrapper_class: 'category-item',
+                input_html: {class: 'category-selector'},
+                collection: Project::PROJECT_SEASON %>
+  <% end %>
 
-              collection: Project::PROJECT_SEASON %>
-  <%= f.submit class: "btn-success" %>
-<% end %>
+    <%= simple_form_for(@project) do |f| %>
+    <%= f.input :transport,
+                as: :radio_buttons,
+                label: "Un moyen transport :",
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper',
+                item_wrapper_class: 'category-item',
+                input_html: {class: 'category-selector'},
+                collection: Project::PROJECT_TRANSPORT %>
+  <% end %>
+
+      <%= simple_form_for(@project) do |f| %>
+    <%= f.input :theme,
+                as: :check_boxes,
+                label: "Un ou plusieurs thème(s) :",
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper',
+                item_wrapper_class: 'category-item',
+                input_html: {class: 'category-selector'},
+                collection: Project::PROJECT_THEME %>
+  <% end %>
+
+    <%= simple_form_for(@project) do |f| %>
+    <%= f.input :profil, as: :check_boxes, label: "Un profil type pour le budget :", collection: Project::PROJECT_PROFIL, wrapper: :vertical_collection_inline %>
+    <%= f.input :total_budget, label: "Un budget max :", wrapper: :horizontal_form %>
+    <div class="d-grid gap-2">
+      <%= f.submit "Create project", class: "btn-principal" %>
+    </div>
+  <% end %>
+</div>

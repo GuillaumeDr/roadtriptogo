@@ -30,6 +30,8 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project.season = params[:season]
+    @project.save
   end
 
   def update
@@ -45,7 +47,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo)
+    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo, :season, :transport)
   end
 
   def set_project
