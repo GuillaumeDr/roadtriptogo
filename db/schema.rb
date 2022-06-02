@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_31_145031) do
+ActiveRecord::Schema.define(version: 2022_06_01_093630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2022_05_31_145031) do
     t.string "total_budget"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "season"
+    t.string "transport"
   end
 
   create_table "steps", force: :cascade do |t|
@@ -96,7 +98,6 @@ ActiveRecord::Schema.define(version: 2022_05_31_145031) do
   end
 
   create_table "todolists", force: :cascade do |t|
-    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id", null: false
