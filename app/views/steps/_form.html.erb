@@ -2,7 +2,7 @@
 
 <%= simple_form_for [project, step] do |f| %>
       <%= f.input :city, placeholder: 'city', label: "From" %>
-      <%= f.input :start_date, label: "Dates",
+      <%= f.input :start_date, label: false,
                                  as: :string,
                                  required: false,
                                  input_html: {class: "datepicker d-none"} %>
