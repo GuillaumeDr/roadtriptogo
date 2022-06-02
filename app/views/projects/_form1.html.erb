@@ -1,0 +1,8 @@
+  <%= simple_form_for(project) do |f| %>
+    <%= f.input :name, placeholder: 'Your name', label: "Name" %>
+    <%= f.input :description, placeholder: 'Quick description of your project', label: "Description" %>
+    <%= f.input :photo, as: :file %>
+    <div class="d-grid gap-2">
+      <%= f.submit class: "btn btn-search" %>
+    </div>
+  <% end %>
