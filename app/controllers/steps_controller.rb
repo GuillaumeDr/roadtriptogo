@@ -6,29 +6,42 @@ class StepsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  def newstep
+    @step = Step.new
+    @project = Project.find(params[:project_id])
+  end
+
   def create
     @step = Step.new(step_params)
     @project = Project.find(params[:project_id])
     @step.end_date = params[:step][:start_date].split(' to ').last
     @step.project = @project
     if @step.save
-      redirect_to edit_project_path(@project)
+      redirect_to project_path(@project)
     else
       render :new
     end
   end
 
   def edit
+    @project = Project.find(params[:project_id])
   end
 
   def update
     @step.update(step_params)
-    redirect_to step_path(@step)
+    @project = Project.find(params[:project_id])
+    @step.end_date = params[:step][:start_date].split(' to ').last
+    if @step.save
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
   end
 
   def destroy
     @step.destroy
-    redirect_to mysteps_path
+    @project = Project.find(params[:project_id])
+    redirect_to project_path(@project)
   end
 
   private
