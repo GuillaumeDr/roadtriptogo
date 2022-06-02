@@ -12,7 +12,7 @@ class StepsController < ApplicationController
     @step.end_date = params[:step][:start_date].split(' to ').last
     @step.project = @project
     if @step.save
-      redirect_to project_path(@project)
+      redirect_to edit_project_path(@project)
     else
       render :new
     end
