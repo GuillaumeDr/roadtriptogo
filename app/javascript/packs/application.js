@@ -17,5 +17,6 @@ import "bootstrap"
 
 // app/javascript/packs/application.js
 import { initFlatpickr } from "../plugins/flatpickr";
-
+import { initSidebar} from "components/sidebar";
 initFlatpickr();
+initSidebar();

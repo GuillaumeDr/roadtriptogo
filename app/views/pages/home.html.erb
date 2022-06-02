@@ -12,14 +12,14 @@
         <div class="carousel-item active" >
           <div class="banner" style="height: 500px; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80)">
             <div class="carousel-caption d-none d-md-block">
-              <h4>Discover amazing stops along your route</h4>
+              <h4>Découvre des spots incroyables tout au long du voyage</h4>
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="banner" style="height: 500px; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
             <div class="carousel-caption d-none d-md-block">
-              <h4>Turn your roadtrip into an adventure</h4>
+              <h4>Fait de ton roadtrip une aventure inédite</h4>
             </div>
           </div>
         </div>
@@ -43,11 +43,9 @@
     </div>
   </div>
   <div class="container-fluid d-flex justify-content-center">
-    <%= link_to "Join us", new_user_session_path, class: "btn btn-home" %>
-
+    <% if user_signed_in? %>
+      <%= link_to "Nouveau projet", new_project_path, class: "btn btn-home" %>
+    <% else %>
+      <%= link_to "Rejoins-nous", new_user_session_path, class: "btn btn-home" %>
+    <% end %>
   </div>
-
-
-
-<%= link_to "New project", new_project_path %>
-
