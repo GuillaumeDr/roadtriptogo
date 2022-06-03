@@ -8,5 +8,7 @@ class Project < ApplicationRecord
   PROJECT_SEASON = ['automne', 'hiver', 'printemps', 'été']
   PROJECT_TRANSPORT = ['voiture', 'train', 'avion']
   PROJECT_THEME = ['nature', 'gastronomie', 'culture']
-  PROJECT_PROFIL = ['Backpack €', 'Touriste €€', 'Confortable €€€', 'Luxe €€€€']
+  PROJECT_PROFIL = ['€', '€€', '€€€', '€€€€']
+
+
 end
