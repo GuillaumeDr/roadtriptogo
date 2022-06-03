@@ -9,7 +9,7 @@
   <div class="container-cards d-flex justify-content-center">
 
     <div class="project-cards">
-      <% @projects.each_with_index do  |project, index| %>
+      <% @myprojects.each_with_index do  |project, index| %>
         <%= link_to project_path(project) do %>
         <% if index.even? %>
           <% if project.photo.attached? %>
