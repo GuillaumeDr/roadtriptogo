@@ -65,8 +65,8 @@ export default class extends Controller {
               'line-cap': 'round'
             },
             paint: {
-              'line-color': 'red',
-              'line-width': 5,
+              'line-color': '#D06224',
+              'line-width': 4,
               'line-opacity': 1
             }
           });
@@ -76,7 +76,6 @@ export default class extends Controller {
 
   #addRoute() {
     if (this.steps.length > 21) {
-      console.log("hello")
       // async function getRoute() {
         fetch(
           `https://api.mapbox.com/directions/v5/mapbox/driving/${this.steps.substring(0, this.steps.length - 1)}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`)
@@ -88,7 +87,6 @@ export default class extends Controller {
           });
 
         //
-
     }
 
   }
