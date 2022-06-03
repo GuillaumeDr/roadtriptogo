@@ -20,7 +20,6 @@
     </div>
   </div>
 
-
   <% @project.steps.each do |step| %>
     <p>id : <%= step.id %> </p>
     <p>city : <%= step.city %> </p>
@@ -33,11 +32,15 @@
       <i class="fa fa-edit"></i>
     <% end %>
   <% end %>
-
-
 </div>
 
+<%= link_to newstep_path( @project) do %>
+  <i class="fa fa-plus"></i>
+<% end %>
 
-    <%= link_to newstep_path( @project) do %>
-      <i class="fa fa-plus"></i>
-    <% end %>
+<div class="container-form">
+  <div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>

@@ -7,6 +7,13 @@ class ProjectsController < ApplicationController
 
   def show
     @step = Step.new
+    @steps = Step.where(project_id: params[:id])
+    @markers = @steps.geocoded.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude
+      }
+    end
   end
 
   def new

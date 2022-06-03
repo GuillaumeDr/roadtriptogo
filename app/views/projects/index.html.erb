@@ -7,8 +7,10 @@
   </div>
 
   <div class="container-cards d-flex justify-content-center">
+
     <div class="project-cards">
       <% @projects.each_with_index do  |project, index| %>
+        <%= link_to project_path(project) do %>
         <% if index.even? %>
           <div class="project-card-right" style="background-image: url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80)">
             <div class="empty-card"> &nbsp; </div>
@@ -27,6 +29,7 @@
             </div>
             <div class="empty-card"> &nbsp; </div>
           </div>
+        <% end %>
         <% end %>
       <% end %>
     </div>
