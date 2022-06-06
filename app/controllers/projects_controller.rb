@@ -1,3 +1,5 @@
+require "json"
+
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -56,7 +58,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo, :season, :transport)
+    params.require(:project).permit(:name, :description, :profil, :total_budget, :photo, :season, :transport, :theme)
   end
 
   def set_project
