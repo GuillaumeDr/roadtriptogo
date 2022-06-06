@@ -88,27 +88,13 @@
               <div class="box">
                 <div class="container">
                   <div class="lines">
-                    <% @steps.count.times do %>
+                    <% @stepcounter.times do %>
                       <div class="dot"></div>
                       <div class="line"></div>
                     <% end %>
                     <div class="dot"></div>
                   </div>
                   <div class="cardstime">
-                    <div class="card">
-                      <div class="d-flex justify-content-between">
-                        <h4><%= @steps.first.city %></h4>
-                        <div>
-                          <%= link_to project_step_path( @project, @steps.first), method: :delete do %>
-                          <i class="fa fa-trash" ></i>
-                          <% end %>
-                          <%= link_to edit_project_step_path( @project, @steps.first) do %>
-                            <i class="fa fa-edit"></i>
-                          <% end %>
-                        </div>
-                      </div>
-                      <p>Du <%= @steps.first.start_date.strftime("%d/%m/%Y") %> au  <%= @steps.first.end_date.strftime("%d/%m/%Y") %></p>
-                    </div>
                     <% @steps.each do |step| %>
                       <div class="card">
                           <div class="d-flex justify-content-between">
