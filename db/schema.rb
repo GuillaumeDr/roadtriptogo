@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_03_131929) do
+
+ActiveRecord::Schema.define(version: 2022_06_06_133049) do
 
 
   # These are extensions that must be enabled in order to support this database
@@ -93,10 +94,10 @@ ActiveRecord::Schema.define(version: 2022_06_03_131929) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "description"
-    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "todolist_id", null: false
+    t.boolean "status"
     t.index ["todolist_id"], name: "index_tasks_on_todolist_id"
   end
 
