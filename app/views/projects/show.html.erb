@@ -3,15 +3,69 @@
 
 <div class="container" >
 
-  <h1>  <%= @project.name %></h1>
 
-  <div class="d-flex justify-content-between">
-    <div style="width: 70%; height: 600px;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <h4> <%= @project.name %></h4>
+
+  <div class="d-flex justify-content-around mt-3">
+    <div class="map">
+      <div style="width: 600px; height: 500px; border-radius: 15px"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <div class="resume">
+        <h5 class="mt-3">Description</h5>
+        <p><%= @project.description %></p>
+        <div class="d-flex justify-content-between">
+          <div class="picto">
+            <h6 class="mt-3">Saison</h6>
+            <% if @project.season == "été" %>
+              <i class="fas fa-sun"></i>
+            <% end %>
+            <% if @project.season == "automne" %>
+              <i class="fab fa-canadian-maple-leaf"></i>
+            <% end %>
+            <% if @project.season == "printemps" %>
+              <i class="fas fa-sun"></i>
+            <% end %>
+            <% if @project.season == "hiver" %>
+              <i class="fas fa-snowflake"></i>
+            <% end %>
+          </div>
+          <div class="picto">
+          <h6 class="mt-3">Transport</h6>
+            <% if @project.transport == "voiture" %>
+              <i class="fas fa-car"></i>
+            <% end %>
+            <% if @project.transport == "avion" %>
+              <i class="fas fa-plane"></i>
+            <% end %>
+            <% if @project.transport == "train" %>
+              <i class="fas fa-train"></i>
+            <% end %>
+          </div>
+          <div class="picto">
+          <h6 class="mt-3">Thème</h6>
+            <% if @project.theme == "culture" %>
+              <i class="fas fa-university"></i>
+            <% end %>
+            <% if @project.theme == "gastronomie" %>
+              <i class="fas fa-utensils"></i>
+            <% end %>
+            <% if @project.theme == "nature" %>
+              <i class="fas fa-mountain"></i>
+            <% end %>
+          </div>
+          <div class="picto">
+          <h5 class="mt-3">Budget</h5>
+
+
+          <%= @project.profil %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
+
       <!-- The Modal -->
       <div id="myModal" class="modal-custom">
         <div class="modal-content">
@@ -21,6 +75,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="main">
             <div class="timeline">
@@ -82,5 +137,6 @@
 
     </div>
   </div>
+
 
 </div>

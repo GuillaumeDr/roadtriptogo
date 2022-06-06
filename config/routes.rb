@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :steps, only: [:new, :create, :edit, :destroy, :update]
   end
   get "/projects/:project_id/newstep", to: "steps#newstep", as: "newstep"
+  get "/myprojects", to: "travelers#myprojects"
 end
