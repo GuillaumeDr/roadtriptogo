@@ -9,6 +9,4 @@ class Project < ApplicationRecord
   PROJECT_TRANSPORT = ['voiture', 'train', 'avion']
   PROJECT_THEME = ['nature', 'gastronomie', 'culture']
   PROJECT_PROFIL = ['€', '€€', '€€€', '€€€€']
-
-
 end
