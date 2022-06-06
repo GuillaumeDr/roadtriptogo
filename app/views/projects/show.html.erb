@@ -1,19 +1,17 @@
 <%= render 'shared/mininavbar' %>
 
 
-<div class="container">
+<div class="container" >
 
   <h1>  <%= @project.name %></h1>
 
   <div class="d-flex justify-content-between">
-    <div>
-      <h2>******************ICI LA CARTE*******************</h2>
+    <div style="width: 70%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <div>
-      <H2>Etapes:</H2>
-      <button type="button" id="myBtn">
-        <i class="fa fa-plus"></i>
-      </button>
       <!-- The Modal -->
       <div id="myModal" class="modal-custom">
         <div class="modal-content">
@@ -24,43 +22,65 @@
         </div>
       </div>
 
-      <% @project.steps.each do |step| %>
-        <p>city : <%= step.city %> </p>
-        <p>start date : <%= step.start_date %> </p>
-        <p>end date : <%= step.end_date %> </p>
-        <%= link_to project_step_path( @project, step), method: :delete do %>
-            <i class="fa fa-trash" ></i>
-        <% end %>
-        <%= link_to edit_project_step_path( @project, step) do %>
-          <i class="fa fa-edit"></i>
-        <% end %>
-      <% end %>
+      <div class="main">
+            <div class="timeline">
+              <div class= "timetop">
+                <div class="d-flex justify-content-evenly">
+                  <h3>Etapes</h3>
+                  <button type="button" id="myBtn" class="btn btn-success">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="container">
+                  <div class="lines">
+                    <% @steps.count.times do %>
+                      <div class="dot"></div>
+                      <div class="line"></div>
+                    <% end %>
+                    <div class="dot"></div>
+                  </div>
+                  <div class="cardstime">
+                    <div class="card">
+                      <div class="d-flex justify-content-between">
+                        <h4><%= @steps.first.city %></h4>
+                        <div>
+                          <%= link_to project_step_path( @project, @steps.first), method: :delete do %>
+                          <i class="fa fa-trash" ></i>
+                          <% end %>
+                          <%= link_to edit_project_step_path( @project, @steps.first) do %>
+                            <i class="fa fa-edit"></i>
+                          <% end %>
+                        </div>
+                      </div>
+                      <p>Du <%= @steps.first.start_date.strftime("%d/%m/%Y") %> au  <%= @steps.first.end_date.strftime("%d/%m/%Y") %></p>
+                      </div>
+                    <% @steps.each do |step| %>
+                      <div class="card">
+                          <div class="d-flex justify-content-between">
+                            <h4><%= step.city %></h4>
+                            <div>
+                              <%= link_to project_step_path( @project, step), method: :delete do %>
+                                <i class="fa fa-trash" ></i>
+                              <% end %>
+                              <%= link_to edit_project_step_path( @project, step) do %>
+                                <i class="fa fa-edit"></i>
+                              <% end %>
+                            </div>
+                          </div>
+                        <p>Du <%= step.start_date.strftime("%d/%m/%Y") %> au <%= step.end_date.strftime("%d/%m/%Y") %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
     </div>
   </div>
 
-</div>
-
-  <% @project.steps.each do |step| %>
-    <p>id : <%= step.id %> </p>
-    <p>city : <%= step.city %> </p>
-    <p>start date : <%= step.start_date %> </p>
-    <p>end date : <%= step.end_date %> </p>
-    <%= link_to project_step_path( @project, step), method: :delete do %>
-        <i class="fa fa-trash" ></i>
-     <% end %>
-    <%= link_to edit_project_step_path( @project, step) do %>
-      <i class="fa fa-edit"></i>
-    <% end %>
-  <% end %>
-</div>
-
-<%= link_to newstep_path( @project) do %>
-  <i class="fa fa-plus"></i>
-<% end %>
-
-<div class="container-form">
-  <div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
