@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_06_03_131929) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,6 +86,8 @@ ActiveRecord::Schema.define(version: 2022_06_03_131929) do
     t.bigint "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["project_id"], name: "index_steps_on_project_id"
   end
 

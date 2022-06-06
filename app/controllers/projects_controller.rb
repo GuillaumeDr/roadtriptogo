@@ -1,3 +1,5 @@
+require "json"
+
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -7,6 +9,14 @@ class ProjectsController < ApplicationController
 
   def show
     @step = Step.new
+    @steps = Step.where(project_id: params[:id]).order(start_date: :asc)
+    @stepcounter = @steps.count - 1
+    @markers = @steps.geocoded.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude
+      }
+    end
   end
 
   def new
@@ -48,7 +58,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo, :season, :transport)
+    params.require(:project).permit(:name, :description, :profil, :total_budget, :photo, :season, :transport, :theme)
   end
 
   def set_project

@@ -16,6 +16,7 @@ import "controllers"
 import "bootstrap"
 
 // app/javascript/packs/application.js
+import { initModal } from "components/modal";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initSidebar} from "components/sidebar";
 initSidebar();
@@ -29,4 +30,5 @@ initDateEvent ();
 
 document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
+  initModal();
 })
