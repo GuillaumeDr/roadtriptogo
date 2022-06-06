@@ -7,7 +7,8 @@ const initFlatpickr = () => {
       mode: "range",
       showMonths: 2,
       inline: true,
-      static: true
+      static: true,
+      dateFormat: "d-m-Y"
   });
 }
 
