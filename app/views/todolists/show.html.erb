@@ -1,0 +1,16 @@
+<%= render 'shared/mininavbar' %>
+<%= render 'shared/sidebar' %>
+
+<div class="container" >
+
+  <h3>To do list</h3>
+
+  <%= link_to "+", new_project_todolist_task_path(@project, @todolist) %>
+
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <%= task.status %>
+      <%= task.description %>
+    </div>
+  <% end %>
+</div>
