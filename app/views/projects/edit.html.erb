@@ -33,10 +33,10 @@
                 input_html: {class: 'category-selector'},
                 collection: Project::PROJECT_THEME %>
 
-    <%= f.input :profil, as: :check_boxes, label: "Un profil type pour le budget :", collection: Project::PROJECT_PROFIL, wrapper: :vertical_collection_inline %>
+    <%= f.input :profil, as: :radio_buttons, label: "Un profil type pour le budget :", collection: Project::PROJECT_PROFIL, wrapper: :vertical_collection_inline %>
     <%= f.input :total_budget, label: "Un budget max :", wrapper: :horizontal_form %>
     <div class="d-grid gap-2">
-      <%= f.submit "Create project", class: "btn-principal" %>
+      <%= f.submit "Continue", class: "btn-principal" %>
     </div>
   <% end %>
 </div>
