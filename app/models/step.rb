@@ -1,6 +1,6 @@
 class Step < ApplicationRecord
   has_many :notes
-  has_many :events
+  has_many :events, dependent: :destroy
   belongs_to :project
 
   validates :start_date, :city, presence: true

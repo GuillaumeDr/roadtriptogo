@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    raise
     @step = Step.find(params[:step_id])
     @event = Event.new(event_params)
     @event.step = @step

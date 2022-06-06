@@ -1,89 +1,92 @@
 <%= render 'shared/sidebar' %>
 <%= render 'shared/mininavbar' %>
 
- <div class="container">
-  <input type="date" id="date-event" name="trip-start" min="2000-01-01" max="2030-01-01" value="<%=@events.first.date%>">
- </div>
+<div class="form date">
 
-<div class="container d-flex">
-
-  <div class="container events justify-content-flex-end">
-
-    <H3>Evenements du jour</H3>
-
-    <div class="container", id="logement">
-      <div class="event-type">
-      <i id="fontawesome", class="fas fa-bed">  Logement</i>
-      </div>
-       <% @events.each do |event| %>
-        <% if  event.event_type == "Logements" %>
-       <div class="event" data-date-event=<%=event.date%>>
-          <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
-          <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
-          <li class="list-unstyled"><br></li>
-       </div>
-        <% end %>
-      <% end %>
+    <div class="container">
+      <input type="date" id="date-event" name="trip-start" min="2000-01-01" max="2030-01-01" value="<%=@events.first.date unless @events.empty? %>">
     </div>
 
-    <div class="container", id="restaurant">
-      <div class="event-type">
-      <i id="fontawesome", class="fas fa-utensils">  Restaurant</i>
-      </div>
-       <% @events.each do |event| %>
-        <% if  event.event_type == "Restaurants" %>
-          <div class="event" data-date-event=<%=event.date%>>
-            <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
-            <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
-            <li class="list-unstyled"><br></li>
+    <div class="container d-flex">
+
+      <div class="container events justify-content-flex-end">
+
+        <H3>Evenements du jour</H3>
+
+        <div class="container", id="logement">
+          <div class="event-type">
+          <i id="fontawesome", class="fas fa-bed">  Logement</i>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="container", id="activités">
-      <div class="event-type">
-      <i id="fontawesome", class="fas fa-running">   Activités</i>
-      </div>
-       <% @events.each do |event| %>
-        <% if  event.event_type == "Activités" %>
+          <% @events.each do |event| %>
+            <% if  event.event_type == "Logements" %>
           <div class="event" data-date-event=<%=event.date%>>
-            <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
-            <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
-            <li class="list-unstyled"><br></li>
+              <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
+              <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
+              <li class="list-unstyled"><br></li>
           </div>
-        <% end %>
-      <% end %>
-    </div>
+            <% end %>
+          <% end %>
+        </div>
 
-    <div class="container", id="notes">
-      <div class="event-type">
-      <i id="fontawesome", class="fas fa-comment-dots">  Notes</i>
+        <div class="container", id="restaurant">
+          <div class="event-type">
+          <i id="fontawesome", class="fas fa-utensils">  Restaurant</i>
+          </div>
+          <% @events.each do |event| %>
+            <% if  event.event_type == "Restaurants" %>
+              <div class="event" data-date-event=<%=event.date%>>
+                <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
+                <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
+                <li class="list-unstyled"><br></li>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="container", id="activités">
+          <div class="event-type">
+          <i id="fontawesome", class="fas fa-running">   Activités</i>
+          </div>
+          <% @events.each do |event| %>
+            <% if  event.event_type == "Activités" %>
+              <div class="event" data-date-event=<%=event.date%>>
+                <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
+                <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
+                <li class="list-unstyled"><br></li>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="container", id="notes">
+          <div class="event-type">
+          <i id="fontawesome", class="fas fa-comment-dots">  Notes</i>
+          </div>
+          <% @events.each do |event| %>
+            <% if  event.event_type == "Notes" %>
+            <div class="event" data-date-event=<%=event.date%>>
+                <li class="list-unstyled"><%= event.description %></li>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <button type="button" class="button-event" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa fa-plus"></i>
+        </button>
+
       </div>
-       <% @events.each do |event| %>
-        <% if  event.event_type == "Notes" %>
-         <div class="event" data-date-event=<%=event.date%>>
-            <li class="list-unstyled"><%= event.description %></li>
-         </div>
-        <% end %>
-      <% end %>
-    </div>
 
-    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-     <i class="fa fa-plus"></i>
-    </button>
-
-  </div>
-
-    <!-- Modal -->
-  <div id="event_date">
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <%= render 'shared/form', project: @project, step: @step, event: @event %>
+        <!-- Modal -->
+      <div id="event_date">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <%= render 'shared/form', project: @project, step: @step, event: @event %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
+    </div>
 </div>
