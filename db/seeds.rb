@@ -15,16 +15,22 @@
 #puts "end"
 
 puts "creating todolist..."
-
 Todolist.create!(project_id: "31")
-
 puts "end"
 
 puts "creating tasks..."
-
 Task.create!(description: "passeport", status: false, todolist_id: 1)
 Task.create!(description: "carte d'embarquement", status: false, todolist_id: 1)
 Task.create!(description: "carte d'identité", status: false, todolist_id: 1)
 Task.create!(description: "check-in", status: false, todolist_id: 1)
-
 puts "end"
+
+Event.destroy_all
+Event.create!(event_type: "Logements", name: "Ibis hotel", address: "1 avenue de Longchamps", duration: "soir", description: "super hotel", price: 30, date: "2022-06-05", step_id: 1)
+Event.create!(event_type: "Restaurants", name: "Le Sésame", address: "3 rue de Calais", duration: "soir", description: "très bon risotto", price: 23, date: "2022-06-05", step_id: 1)
+Event.create!(event_type: "Activités", name: "Rafting", address: "Près de la mairie", duration: "Après-midi", description: "prendre serviette", price: 12, date: "2022-06-05", step_id: 1)
+Event.create!(event_type: "Notes", description: "Jour de marché !", date: "2022-06-05", step_id: 1)
+Event.create!(event_type: "Logements", name: "Novotel", address: "1 avenue de Longchamps", duration: "soir", description: "super hotel", price: 30, date: "2022-06-06", step_id: 1)
+Event.create!(event_type: "Restaurants", name: "Macdonald", address: "3 rue de Calais", duration: "soir", description: "très bon risotto", price: 23, date: "2022-06-06", step_id: 1)
+Event.create!(event_type: "Activités", name: "Acrobranche", address: "Près de la mairie", duration: "Après-midi", description: "prendre serviette", price: 12, date: "2022-06-06", step_id: 1)
+Event.create!(event_type: "Notes", description: "Déposer les enfants chez les grand-parents", date: "2022-06-06", step_id: 1)

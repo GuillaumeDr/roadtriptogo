@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   has_one :todolist
+  has_many :events, through: :steps
   has_many :steps, dependent: :destroy
   has_many :users, through: :travelers
   has_many :travelers, dependent: :destroy

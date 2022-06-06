@@ -1,0 +1,29 @@
+<div class="container-fluid form">
+
+<input type="radio" name="post_type" value="event" id="event-btn"/> Event
+<input type="radio" name="post_type" value="note" id="note-btn"/> Note
+
+  <div id="event" class="d-none">
+    <%= simple_form_for [@project, @step, @event] do |f| %>
+      <%= f.input :event_type, collection: Event::EVENT_TYPE, :prompt => 'Select One' %>
+      <%= f.input :name, label: "Nom" %>
+      <%= f.input :address, label: "Address" %>
+      <%= f.input :duration, collection: Event::EVENT_DURATION, :prompt => 'Select One' %>
+      <%= f.input :price, label: "Prix (en €) " %>
+      <%= f.input :description, label: "Description" %>
+      <div class="d-grid gap-2">
+        <%= f.submit class: "btn btn-search" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="note" class="d-none">
+    <%= simple_form_for [@project, @step, @event] do |f| %>
+      <%= f.input :event_type, input_html: {value: 'Notes'} %>
+      <%= f.input :description, label: "Description" %>
+      <div class="d-grid gap-2">
+        <%= f.submit class: "btn btn-search" %>
+      </div>
+    <% end %>
+  </div>
+</div>
