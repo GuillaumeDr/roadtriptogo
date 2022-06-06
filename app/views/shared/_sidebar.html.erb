@@ -8,14 +8,15 @@
 
 <div class="sidebar">
   <div class="logo-details">
-    <img src= "app/assets/images/RoadtripToGo_petit.png" alt="Logo" class="avatar icon">
-      <div class="logo_name">Roadtrip To Go</div>
+    <a href="<%=root_path%>"><%= image_tag "RoadtripToGo_petit.png", class:"avatar icon" %></a>
+
+      <div class="logo_name">    Roadtrip To Go</div>
       <i class='bx bx-menu' id="btn" ></i>
   </div>
   <ul class="nav-list">
     <li>
-      <a href="<%=root_path%>">
-        <img src= "<%=current_user.photo.key %>" alt="profileImg" class="avatar">
+      <a href="">
+        <%= cl_image_tag current_user.photo.key, id:"img", width:45 %>
         <span class="links_name"><%= current_user.first_name %> <%= current_user.last_name %></span>
       </a>
         <span class="tooltip"><%= current_user.first_name %> <%= current_user.last_name %></span>

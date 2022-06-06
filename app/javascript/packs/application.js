@@ -19,6 +19,12 @@ import "bootstrap"
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initSidebar} from "components/sidebar";
 initSidebar();
+import { initForm} from "components/form";
+initForm ();
+import { initDateEvent} from "components/date";
+initDateEvent ();
+// import { initTodolist} from "components/todolist";
+// initTodolist ();
 
 
 document.addEventListener('turbolinks:load', () => {
