@@ -3,10 +3,10 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    @events = Event.all
+    # @events = Event.all
     @project = Project.find(params[:project_id])
     @steps = @project.steps
-    # @events = Event.where(project: @project)
+    @events = @project.events
   end
 
   def create

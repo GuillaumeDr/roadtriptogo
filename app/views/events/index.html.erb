@@ -2,7 +2,7 @@
 <%= render 'shared/mininavbar' %>
 
  <div class="container">
-  <input type="date" id="date-event" name="trip-start" min="2000-01-01" max="2030-01-01" value="2022-06-05">
+  <input type="date" id="date-event" name="trip-start" min="2000-01-01" max="2030-01-01" value="<%=@events.first.date%>">
  </div>
 
 <div class="container d-flex">
