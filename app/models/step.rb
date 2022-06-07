@@ -1,5 +1,5 @@
 class Step < ApplicationRecord
-  has_many :notes
+  has_many :notes, dependent: :destroy
   has_many :events, dependent: :destroy
   belongs_to :project
 

@@ -16,7 +16,11 @@
   <ul class="nav-list">
     <li>
       <a href="">
-        <%= cl_image_tag current_user.photo.key, id:"img", width:45 %>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
         <span class="links_name"><%= current_user.first_name %> <%= current_user.last_name %></span>
       </a>
         <span class="tooltip"><%= current_user.first_name %> <%= current_user.last_name %></span>
