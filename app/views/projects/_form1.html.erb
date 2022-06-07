@@ -1,3 +1,5 @@
+<%= render 'shared/sidebar' %>
+
 <div data-controller="add-collab">
   <%= simple_form_for(project) do |f| %>
     <%= f.input :name, placeholder: 'Nom du projet', label: "Nom" %>
