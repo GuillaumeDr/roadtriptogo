@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_095030) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "todolist_id", null: false
-    t.boolean "status"
+    t.boolean "status", default: false
     t.index ["todolist_id"], name: "index_tasks_on_todolist_id"
   end
 
