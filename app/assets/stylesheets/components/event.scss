@@ -1,13 +1,13 @@
 .event-type{
-  width: 450Px;
+  width: 700Px;
   margin: 15px 0;
 }
 
 .events h3{
 font-family: "Poppins";
-margin: 35px 0;
-width: 300px;
-font-weight: 300;
+margin-bottom: 25px;
+// width: 300px;
+font-weight: 450;
 }
 
 #logement > .event-type{
@@ -15,6 +15,7 @@ font-weight: 300;
   #fontawesome {
     color:#8FC1D4;
     font-size: 30px;
+    padding-bottom: 20px;
   }
 }
 
@@ -23,6 +24,7 @@ font-weight: 300;
   #fontawesome {
     color:#FFB84E;
     font-size: 30px;
+    padding-bottom: 20px;
   }
 }
 
@@ -31,6 +33,7 @@ font-weight: 300;
   #fontawesome {
     color:#82954B;
     font-size:30px;
+    padding-bottom: 20px;
   }
 }
 
@@ -39,15 +42,21 @@ font-weight: 300;
   #fontawesome {
     color:#D06224;
     font-size: 30px;
+    padding-bottom: 20px;
   }
 }
 
-.button-event {
-  color: #FFFF;
-  background-color: #AE431E;
-  border-radius: 25px;
-  border: solid #AE431E;
-  height: 36px;
-  width: 50px;
-  margin-top: 30px;
+.flatpickr-input {
+  display: none;
+}
+
+.container-event{
+  margin: 55px 0px 10px 150px;
+  padding: 0px;
+  width: 100%;
+}
+
+.calendar{
+  padding-left: 40px;
+  padding-right: 0px;
 }
