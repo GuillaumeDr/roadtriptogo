@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "/myprojects", to: "travelers#myprojects"
 
   post "/projects/:project_id/todolists/:todolist_id/tasks/new", to: "tasks#new"
+  # patch "/projects/:project_id/todolists/:todolist_id/tasks/id", to: "tasks#update", as: "test"
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
