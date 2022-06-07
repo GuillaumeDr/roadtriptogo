@@ -5,25 +5,38 @@
 
   <div id="event" class="d-none">
     <%= simple_form_for [@project, @event] do |f| %>
-      <%= f.input :event_type, collection: Event::EVENT_TYPE, :prompt => 'Select One' %>
+      <%= f.association :step, label: "Quelle étape ?", collection: Step.where(project: @project).order(:city), prompt: "Choose a Step", label_method: :city%>
+      <%= f.input :event_type, label:"Type d'évenement", collection: Event::EVENT_TYPE, :prompt => 'Quel type ?' %>
+      <%= f.input :duration, label:"Créneau horaire", collection: Event::EVENT_DURATION, :prompt => 'Quel créneau horaire ?' %>
       <%= f.input :name, label: "Nom" %>
-      <%= f.input :address, label: "Address" %>
-      <%= f.input :duration, collection: Event::EVENT_DURATION, :prompt => 'Select One' %>
+      <%= f.input :address, label: "Adresse" %>
       <%= f.input :price, label: "Prix (en €) " %>
       <%= f.input :description, label: "Description" %>
-      <%= f.input :date %>
+      <div class="d-flex justify-content-center">
+      <%= f.input :date, label: false,
+                              as: :string,
+                              required: false,
+                              input_html: {class: "datepicker d-none"} %>
+      </div>
       <div class="d-grid gap-2">
-        <%= f.submit class: "btn btn-search" %>
+        <%= f.submit class: "btn btn-principal" %>
       </div>
     <% end %>
   </div>
 
   <div id="note" class="d-none">
     <%= simple_form_for [@project, @event] do |f| %>
-      <%= f.input :event_type, input_html: {value: 'Notes'} %>
+      <% f.input :event_type, input_html: {value: 'Notes'} %>
+      <%= f.association :step,  label: "Quelle étape ?", collection: Step.where(project: @project).order(:city), prompt: "Choose a Step", label_method: :city%>
       <%= f.input :description, label: "Description" %>
+      <div class="d-flex justify-content-center">
+      <%= f.input :date, label: false,
+                              as: :string,
+                              required: false,
+                              input_html: {class: "datepicker d-none"} %>
+      </div>
       <div class="d-grid gap-2">
-        <%= f.submit class: "btn btn-search" %>
+        <%= f.submit class: 'btn btn-principal' %>
       </div>
     <% end %>
   </div>
