@@ -72,11 +72,6 @@
   }
 }
 
-.cards-projects{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 44px;
-}
 @media(max-width: 1200px) {
   .cards-projects {
     grid-template-columns: 1fr 1fr;
@@ -96,25 +91,82 @@
   }
 }
 
-.card-projects{
-  background-size: cover;
-  background-position: center;
-  height: 180px;
+.cards-projects{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 44px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  position: relative;
+  justify-content: space-between;
 }
 
-.card-projects-img {
-  background-color: white;
-  border-radius: 10px;
-  height: 140px;
-  text-align: center;
+.card-projects{
+  margin-top: 40px;
+  height: 396px;
+  width: 506px;
+  border-radius: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  position: relative;
+
+
+  h2 {
+   color: #334454;
+   font-size: 1.2rem;
+   margin-bottom: 5px;
+  }
+  p {
+   color: #6a7f8c;
+   font-size: 0.8rem;
+  }
+  p b {
+   font-style: italic;
+  }
+
 }
+.card-projects-profile{
+  margin-top: 10px;
+  display: flex;
+   img{
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   object-position: left ;
+   object-fit: cover;
+   margin: 0 30px 0 10px;
+  }
+}
+
+.card-projects-img img {
+  border-radius: 25px;
+  height: 70%;
+  width: 506px;
+  background-position: center;
+  background-size: cover;
+}
+
+// .info-project {
+//   background: rgba(27, 26, 26, 0.9);
+//   transition: all 0.3s ease-out;
+//   transform: translateX(-120%);
+//   position: absolute;
+//   line-height: 1.8;
+//   text-align: left;
+//   font-size: 85%;
+//   cursor: no-drop;
+//   color: #FFF;
+//   height: 100%;
+//   width: 100%;
+//   left: 0;
+//   top: 0;
+//   padding-top: 85px;
+// }
+
+// .card-projects-img:hover .info{transform: translateX(0);}
+// .card-projects-img:hover img {
+//   transition: all 0.3s ease-out;
+//   transform: scale(1.2, 1.2);
+// }
