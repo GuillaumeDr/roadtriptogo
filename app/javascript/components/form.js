@@ -1,6 +1,7 @@
-let form = document.querySelector(".form");
 
 const initForm = () => {
+  let form = document.querySelector(".form");
+
   if (form){
 
     const event = document.getElementById("event-btn")
