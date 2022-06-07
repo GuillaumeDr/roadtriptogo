@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
     @step = Step.new
     @steps = Step.where(project_id: params[:id]).order(start_date: :asc)
     @stepcounter = @steps.count - 1
+    @chatroom = Chatroom.find_by(project_id: params[:id])
     @collaborators = Traveler.where(project_id: params[:id]).where(privilege: "collaborator")
     @markers = @steps.geocoded.map do |step|
       {
@@ -40,6 +41,10 @@ class ProjectsController < ApplicationController
           @traveler.project_id = @project.id
           @traveler.save
         end
+        @chatroom = Chatroom.new
+        @chatroom.project_id = @project.id
+        @chatroom.name = "#{@project.name} messagerie"
+        @chatroom.save
         redirect_to edit_project_path(@project)
       else
         render :new

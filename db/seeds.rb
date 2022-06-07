@@ -14,16 +14,16 @@
 
 #puts "end"
 
-puts "creating todolist..."
-Todolist.create!(project_id: "31")
-puts "end"
+# puts "creating todolist..."
+# Todolist.create!(project_id: "31")
+# puts "end"
 
-puts "creating tasks..."
-Task.create!(description: "passeport", status: false, todolist_id: 1)
-Task.create!(description: "carte d'embarquement", status: false, todolist_id: 1)
-Task.create!(description: "carte d'identité", status: false, todolist_id: 1)
-Task.create!(description: "check-in", status: false, todolist_id: 1)
-puts "end"
+# puts "creating tasks..."
+# Task.create!(description: "passeport", status: false, todolist_id: 1)
+# Task.create!(description: "carte d'embarquement", status: false, todolist_id: 1)
+# Task.create!(description: "carte d'identité", status: false, todolist_id: 1)
+# Task.create!(description: "check-in", status: false, todolist_id: 1)
+# puts "end"
 
 Event.destroy_all
 Event.create!(event_type: "Logements", name: "Ibis hotel", address: "1 avenue de Longchamps", duration: "soir", description: "super hotel", price: 30, date: "2022-06-05", step_id: 1)

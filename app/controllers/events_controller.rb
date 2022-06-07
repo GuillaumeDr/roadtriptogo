@@ -3,19 +3,18 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    # @events = Event.all
     @project = Project.find(params[:project_id])
+    @chatroom = Chatroom.find_by(project_id: @project.id)
     @steps = @project.steps
     @events = @project.events
   end
 
   def create
-    raise
-    @step = Step.find(params[:step_id])
+    @step = Step.find(params[:event][:step_id])
     @event = Event.new(event_params)
     @event.step = @step
     if @event.save
-      redirect_to project_step_events_path
+      redirect_to project_events_path
     else
       render 'shared/form', project: @project, step: @step, event: @event
     end
