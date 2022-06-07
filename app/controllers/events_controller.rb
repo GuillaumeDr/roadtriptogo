@@ -5,12 +5,12 @@ class EventsController < ApplicationController
     @event = Event.new
     # @events = Event.all
     @project = Project.find(params[:project_id])
+    @chatroom = Chatroom.find_by(project_id: @project.id)
     @steps = @project.steps
     @events = @project.events
   end
 
   def create
-    raise
     @step = Step.find(params[:step_id])
     @event = Event.new(event_params)
     @event.step = @step

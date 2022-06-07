@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :todolists do
       resources :tasks, only: [ :new, :create, :edit, :update, :destroy ]
     end
+
   end
 
   get "/projects/:project_id/newstep", to: "steps#newstep", as: "newstep"
@@ -16,5 +17,9 @@ Rails.application.routes.draw do
   get "/myprojects", to: "travelers#myprojects"
 
   post "/projects/:project_id/todolists/:todolist_id/tasks/new", to: "tasks#new"
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 
 end
