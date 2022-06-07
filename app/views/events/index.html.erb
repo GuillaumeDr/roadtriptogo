@@ -2,20 +2,20 @@
 <%= render 'shared/mininavbar' %>
 
 <div class="form date">
+  <div class="container container-event d-flex">
 
-    <div class="container">
-      <input type="date" inline=true id="date-event" name="trip-start" min="2000-01-01" max="2030-01-01" value="<%=@events.first.date unless @events.empty? %>">
+    <div class="container calendar">
+      <input type="date" class="form-control form-control-solid" id="date-event" name="trip-start" min="2000-01-01" max="2030-01-01" value="<%=@events.first.date unless @events.empty? %>">
     </div>
 
-      <div class="events ">
-        <div class="d-flex justify-content-center">
-          <H3>Evenements du jour</H3>
-        </div>
+    <div class="container events">
+      <div class="container d-flex justify-content-center">
+        <H3>Programme du jour</H3>
+      </div>
 
-        <div class="container d-flex justify-content-center", id="logement">
-          <div class="event-type">
+      <div class=" container d-flex justify-content-center", id="logement">
+        <div class="event-type">
           <i id="fontawesome", class="fas fa-bed">  Logement</i>
-          </div>
           <% @events.each do |event| %>
             <% if  event.event_type == "Logements" %>
               <div class="container event" data-date-event=<%=event.date%>>
@@ -26,11 +26,11 @@
             <% end %>
           <% end %>
         </div>
+      </div>
 
-        <div class="container d-flex justify-content-center", id="restaurant">
-          <div class="event-type">
+      <div class="container d-flex justify-content-center", id="restaurant">
+        <div class="event-type">
           <i id="fontawesome", class="fas fa-utensils">  Restaurant</i>
-          </div>
           <% @events.each do |event| %>
             <% if  event.event_type == "Restaurants" %>
               <div class="container event" data-date-event=<%=event.date%>>
@@ -41,11 +41,11 @@
             <% end %>
           <% end %>
         </div>
+      </div>
 
-        <div class="container d-flex justify-content-center", id="activités">
-          <div class="event-type">
-          <i id="fontawesome", class="fas fa-running">   Activités</i>
-          </div>
+      <div class="container d-flex justify-content-center", id="activités">
+        <div class="event-type">
+        <i id="fontawesome", class="fas fa-running">   Activités</i>
           <% @events.each do |event| %>
             <% if  event.event_type == "Activités" %>
               <div class="container event" data-date-event=<%=event.date%>>
@@ -56,28 +56,31 @@
             <% end %>
           <% end %>
         </div>
+      </div>
 
-        <div class="container d-flex justify-content-center", id="notes">
-          <div class="event-type">
-          <i id="fontawesome", class="fas fa-comment-dots">  Notes</i>
-          </div>
+      <div class="container d-flex justify-content-center", id="notes">
+        <div class="event-type">
+        <i id="fontawesome", class="fas fa-comment-dots">  Notes</i>
           <% @events.each do |event| %>
             <% if  event.event_type == "Notes" %>
-            <div class="container event" data-date-event=<%=event.date%>>
-                <li class="list-unstyled"><%= event.description %></li>
-            </div>
+              <div class="container event" data-date-event=<%=event.date%>>
+                  <li class="list-unstyled"><%= event.description %></li>
+              </div>
             <% end %>
           <% end %>
         </div>
+      </div>
 
-        <div class="d-flex justify-content-center">
-          <button type="button" class="button-event" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <div class="container d-flex justify-content-center">
+        <button type="button" class="btn-principal" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fa fa-plus"></i>
-          </button>
-        </div>
+        </button>
       </div>
 
     </div>
+
+
+
 
       <!-- Modal -->
     <div id="event_date">
@@ -89,4 +92,6 @@
         </div>
       </div>
     </div>
+
+  </div>
 </div>
