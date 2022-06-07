@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @project = Project.find(params[:project_id])
     @chatroom = Chatroom.find_by(project_id: @project.id)
+    @todolist = Todolist.find_by(project_id: @project.id)
     @steps = @project.steps
     @events = @project.events
   end
