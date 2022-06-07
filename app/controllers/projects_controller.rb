@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     @steps = Step.where(project_id: params[:id]).order(start_date: :asc)
     @stepcounter = @steps.count - 1
     @chatroom = Chatroom.find_by(project_id: params[:id])
+    @todolist = Todolist.find_by(project_id: params[:id])
     @collaborators = Traveler.where(project_id: params[:id]).where(privilege: "collaborator")
     @markers = @steps.geocoded.map do |step|
       {
@@ -62,6 +63,15 @@ class ProjectsController < ApplicationController
   def update
     @project.update(project_params)
     redirect_to new_project_step_path(@project)
+    @todolist = Todolist.new
+    @todolist.project_id = @project.id
+    @todolist.save
+    Task::TODOLIST_BASE.each do |t|
+      @task = Task.new
+      @task.description = t
+      @task.todolist_id = @todolist.id
+      @task.save
+    end
   end
 
   def destroy

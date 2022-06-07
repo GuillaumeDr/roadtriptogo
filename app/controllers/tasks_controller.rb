@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     @task.todolist = @todolist
     @project = Project.find(params[:project_id])
     if @task.save
+
       redirect_to project_todolist_path(@project, @todolist)
     else
       render :new
