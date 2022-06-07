@@ -12,7 +12,7 @@ const initModal = () => {
 
       // When the user clicks on the button, open the modal
     btn.addEventListener("click", ()=> {
-      console.log("hello");
+      // console.log("hello");
       modal.style.display = "block";
       initFlatpickr();
     })

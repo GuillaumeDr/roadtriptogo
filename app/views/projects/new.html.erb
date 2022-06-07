@@ -1,8 +1,8 @@
 <div class="container-form" >
   <h3>Détails du projet</h3>
   <div class="d-flex justify-content-between">
-    <p style="font-size: 12px;">Please fill your information about your project</p>
+    <p style="font-size: 12px;">Merci de renseigner les informations du projet</p>
     <b style="font-size: 12px;">1/3</b>
   </div>
-  <%= render 'form1', project: @project %>
+  <%= render 'form1', project: @project,users: @users, collaborators: @collaborators%>
 </div>

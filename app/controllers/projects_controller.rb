@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
     @step = Step.new
     @steps = Step.where(project_id: params[:id]).order(start_date: :asc)
     @stepcounter = @steps.count - 1
+    @collaborators = Traveler.where(project_id: params[:id]).where(privilege: "collaborator")
     @markers = @steps.geocoded.map do |step|
       {
         lat: step.latitude,
@@ -19,6 +20,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @users = User.where.not(id: current_user.id)
   end
 
   def create
@@ -29,6 +31,13 @@ class ProjectsController < ApplicationController
       @traveler.privilege = "admin"
       @traveler.project_id = @project.id
       if @traveler.save
+        params[:project][:collab].split(",").each do |collab|
+          @traveler = Traveler.new
+          @traveler.user_id = collab
+          @traveler.privilege = "collaborator"
+          @traveler.project_id = @project.id
+          @traveler.save
+        end
         redirect_to edit_project_path(@project)
       else
         render :new
@@ -56,7 +65,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo, :season, :transport)
+    params.require(:project).permit(:name, :description, :theme, :profil, :total_budget, :photo, :season, :transport, :collab)
   end
 
   def set_project

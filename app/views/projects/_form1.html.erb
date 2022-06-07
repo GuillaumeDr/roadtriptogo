@@ -1,9 +1,48 @@
-
+<div data-controller="add-collab">
   <%= simple_form_for(project) do |f| %>
-    <%= f.input :name, placeholder: 'Your name', label: "Name" %>
-    <%= f.input :description, placeholder: 'Quick description of your project', label: "Description" %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :name, placeholder: 'Nom du projet', label: "Nom" %>
+    <%= f.input :description, placeholder: 'Description du projet', label: "Description" %>
+    <%= f.input :photo, as: :file, label: "Photo d'illustration du projet"  %>
+    <%= f.input :collab, as: :hidden, input_html: {data: {add_collab_target: "input"}}, label: false%>
+    <p>Collaborateurs</p>
+    <div class="d-flex justify-content-start" style = "margin-bottom: 16px;" >
+      <div data-add-collab-target="collaborators">
+      </div>
+      <button type="button" id="myBtn">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
     <div class="d-grid gap-2">
       <%= f.submit "Continue", class: "btn-principal" %>
     </div>
   <% end %>
+
+
+    <!-- The Modal -->
+  <div id="myModal" class="modal-custom">
+    <div class="modal-content" >
+      <div class="d-flex justify-content-between" >
+        <div>
+          <br>
+          <p>Ajouté vos collaborateurs:</p>
+        </div>
+        <div>
+          <span class="close">&times;</span>
+        </div>
+      </div>
+      <div>
+        <% @users.each do |user| %>
+          <div style = "margin-bottom: 8px;" >
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: "avatar", id:"img", width:45, data: {action: "click->add-collab#collab",userid: user.id, userkey: user.photo.key, selected: false}%>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?ixlib=rb-1.2.1&raw_url=tr[…]MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580",class: "avatar", id:"img", width:45, data: {action: "click->add-collab#collab", userid: user.id, userkey: user.photo.key, selected: false}  %>
+            <% end %>
+              <span class="links_name"><%= user.first_name %> <%= user.last_name %></span>
+            <br>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

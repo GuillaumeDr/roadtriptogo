@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   get "/projects/:project_id/newstep", to: "steps#newstep", as: "newstep"
   get "/myprojects", to: "travelers#myprojects"
+
 end
