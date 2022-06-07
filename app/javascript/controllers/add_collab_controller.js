@@ -3,8 +3,11 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ["input", "collaborators"]
 
-  collab(event) {
+  connect( ){
 
+  }
+
+  collab(event) {
     const target = event.target
     const idcollab = `collab${target.dataset.userid}`
 

@@ -1,13 +1,17 @@
 import {initFlatpickr} from "plugins/flatpickr";
-const modal = document.getElementById("myModal");
+
 
 // Get the button that opens the modal
-const btn = document.getElementById("myBtn");
+
 
 // Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+
 
 const initModal = () => {
+  const modal = document.getElementById("myModal");
+  const btn = document.getElementById("myBtn");
+  const span = document.getElementsByClassName("close")[0];
+
   if(modal) {
 
       // When the user clicks on the button, open the modal
