@@ -6,6 +6,8 @@ class Project < ApplicationRecord
   has_many :travelers, dependent: :destroy
   has_one_attached :photo
 
+  attr_accessor :collab
+
   PROJECT_SEASON = ['automne', 'hiver', 'printemps', 'été']
   PROJECT_TRANSPORT = ['voiture', 'train', 'avion']
   PROJECT_THEME = ['nature', 'gastronomie', 'culture']
