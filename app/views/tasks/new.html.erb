@@ -1,7 +1,6 @@
 <div class="container">
   <%= simple_form_for [@project, @todolist, @task], url: url_for(action: :create, controller: 'tasks') do |f| %>
     <%= f.input :description, placeholder: 'Titre de la nouvelle tache' %>
-    <%= f.input :status %>
     <div class="d-grid gap-2">
       <%= f.submit "Créer la tache", class: "btn-principal" %>
     </div>
