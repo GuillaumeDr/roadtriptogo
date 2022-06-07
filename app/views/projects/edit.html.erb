@@ -25,7 +25,7 @@
                 collection: Project::PROJECT_TRANSPORT %>
 
     <%= f.input :theme,
-                as: :check_boxes,
+                as: :radio_buttons,
                 label: "Un ou plusieurs thème(s) :",
                 collection_wrapper_tag: 'div',
                 collection_wrapper_class: 'category-wrapper',
@@ -34,7 +34,7 @@
                 collection: Project::PROJECT_THEME %>
 
     <%= f.input :profil, as: :radio_buttons, label: "Un profil type pour le budget :", collection: Project::PROJECT_PROFIL, wrapper: :vertical_collection_inline %>
-    <%= f.input :total_budget, label: "Un budget max :", wrapper: :horizontal_form %>
+    <%= f.input :total_budget, label: "Un budget max :", placeholder: '€' %>
     <div class="d-grid gap-2">
       <%= f.submit "Continue", class: "btn-principal" %>
     </div>

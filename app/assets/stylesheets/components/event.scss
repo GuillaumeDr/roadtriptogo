@@ -1,0 +1,51 @@
+.event-type{
+  width: 450Px;
+  margin: 15px 0;
+}
+
+.events > h3{
+font-family: "Poppins";
+margin: 35px 0;
+}
+
+#logement > .event-type{
+  border-right: solid 10px #8FC1D4;
+  #fontawesome {
+    color:#8FC1D4;
+    font-size: 30px;
+  }
+}
+
+#restaurant > .event-type{
+  border-right: solid 10px #FFB84E;
+  #fontawesome {
+    color:#FFB84E;
+    font-size: 30px;
+  }
+}
+
+#activités > .event-type{
+  border-right: solid 10px #82954B;
+  #fontawesome {
+    color:#82954B;
+    font-size:30px;
+  }
+}
+
+#notes > .event-type{
+  border-right: solid 10px #D06224;
+  #fontawesome {
+    color:#D06224;
+    font-size: 30px;
+  }
+}
+
+.button-event {
+  color: #FFFF;
+  background-color: #AE431E;
+  border-radius: 25px;
+  border: solid #AE431E;
+  height: 36px;
+  width: 50px;
+  margin-top: 30px;
+}

@@ -2,44 +2,15 @@
 
 <div class="container">
   <div class="container-btn d-flex justify-content-center">
-    <%= link_to "New project", new_project_path, class: "btn btn-home" %>
-
+    <%= link_to "Créer un projet", new_project_path, class: "btn btn-home" %>
   </div>
 
-  <div class="container-cards d-flex justify-content-center">
+<div class="container">
+    <div class="container-cards d-flex justify-content-center">
+      <div class="cards-projects">
+        <div class="card-projects">
 
-    <div class="project-cards">
-      <% @projects.each_with_index do  |project, index| %>
-        <%= link_to project_path(project) do %>
-        <% if index.even? %>
-          <% if project.photo.attached? %>
-            <div class="project-card-right" style="background-image: url('<%= cl_image_path project.photo.key%>')">
-          <% else %>
-            <div class="project-card-right" style="background-image: url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80)">
-          <% end %>
-            <div class="empty-card"> &nbsp; </div>
-            <div class="project-card-body">
-              <h5><%= project.name %></h5>
-              <p><i class="fas fa-calendar-alt"></i> 13.06 au 20.06.2022</p>
-              <p><i class="fas fa-money-bill-wave"></i> <%= project.total_budget %> €</p>
-            </div>
-          </div>
-        <% else %>
-          <% if project.photo.attached? %>
-            <div class="project-card-right" style="background-image: url('<%= cl_image_path project.photo.key%>')">
-          <% else %>
-            <div class="project-card-right" style="background-image: url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80)">
-          <% end %>
-            <div class="project-card-body">
-              <h5><%= project.name %></h5>
-              <p><i class="fas fa-calendar-alt"></i> 13.06 au 20.06.2022</p>
-              <p><i class="fas fa-money-bill-wave"></i> <%= project.total_budget %> €</p>
-            </div>
-            <div class="empty-card"> &nbsp; </div>
-          </div>
-        <% end %>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
