@@ -66,18 +66,101 @@ class ProjectsController < ApplicationController
     @todolist = Todolist.new
     @todolist.project_id = @project.id
     @todolist.save
-    Task::TODOLIST_BASE.each do |t|
-      @task = Task.new
-      @task.description = t
-      @task.todolist_id = @todolist.id
-      @task.save
-    end
+    generate_todo
   end
 
   def destroy
 
     @project.destroy
     redirect_to myprojects_path
+  end
+
+  def generate_todo
+    if @project.season == 'été' && @project.transport == 'voiture'
+      Task::TODOLIST_ETE_VOITURE.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'été' && @project.transport == 'avion'
+      Task::TODOLIST_ETE_AVION.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'été' && @project.transport == 'train'
+      Task::TODOLIST_ETE_TRAIN.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'automne' && @project.transport == 'voiture'
+      Task::TODOLIST_AUTOMNE_VOITURE.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'automne' && @project.transport == 'avion'
+      Task::TODOLIST_AUTOMNE_AVION.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'automne' && @project.transport == 'train'
+      Task::TODOLIST_AUTOMNE_TRAIN.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'hiver' && @project.transport == 'voiture'
+      Task::TODOLIST_HIVER_VOITURE.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'hiver' && @project.transport == 'avion'
+      Task::TODOLIST_HIVER_AVION.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'hiver' && @project.transport == 'train'
+      Task::TODOLIST_HIVER_TRAIN.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'printemps' && @project.transport == 'voiture'
+      Task::TODOLIST_PRINTEMPS_VOITURE.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'printemps' && @project.transport == 'avion'
+      Task::TODOLIST_PRINTEMPS_AVION.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    elsif @project.season == 'printemps' && @project.transport == 'train'
+      Task::TODOLIST_PRINTEMPS_TRAIN.each do |t|
+        @task = Task.new
+        @task.description = t
+        @task.todolist_id = @todolist.id
+        @task.save
+      end
+    end
   end
 
   private
