@@ -1,16 +1,43 @@
 <%= render 'shared/mininavbar' %>
 <%= render 'shared/sidebar' %>
 
-<div class="container" >
+<div class="container mt-5" >
 
   <h3>To do list</h3>
 
-  <%= link_to "+", new_project_todolist_task_path(@project, @todolist) %>
 
+<div class="tasks mt-5">
   <% @tasks.each do |task| %>
-    <div class="task">
-      <%= task.status %>
-      <%= task.description %>
+    <div data-controller="tasks">
+      <%= form_with url: project_todolist_task_path(@project, @todolist, task) do |form| %>
+        <%= form.check_box :status,
+                            data: {
+                              id: task.id,
+                              project: @project.id,
+                              todolist: @todolist.id,
+                              action: "tasks#update"
+                            },
+                            checked: task.status,
+                            class: "mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500" %>
+        <%= task.description %>
+      <% end %>
     </div>
   <% end %>
+</div>
+
+<div class="addtask mt-5">
+  <%= simple_form_for [@project, @todolist, @task],
+      wrapper: :inline_form,
+      html: { class: "row row-cols-lg-2 g-4 align-items-center" },
+      wrapper_mappings: {
+        boolean: :inline_boolean
+      } do |f| %>
+    <%= f.input :description, placeholder: 'Ajouter une nouvelle tâche' %>
+    <div class="col-12">
+    <%= f.submit "+", class: "btn-principal" %>
+    </div>
+  <% end %>
+</div>
+
+
 </div>

@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
 
   def new
-    @task = Task.new
     @todolist = Todolist.find(params[:todolist_id])
   end
 
@@ -11,6 +10,7 @@ class TasksController < ApplicationController
     @task.todolist = @todolist
     @project = Project.find(params[:project_id])
     if @task.save
+
       redirect_to project_todolist_path(@project, @todolist)
     else
       render :new
@@ -23,8 +23,12 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to project_todolist_path(@project, @todolist)
+    @project = Project.find(params[:project_id])
+    @todolist = Todolist.find(params[:todolist_id])
+
+    @task.update(status: params[:status])
+    render json: {message: 'wohooo'}
+
   end
 
   private
