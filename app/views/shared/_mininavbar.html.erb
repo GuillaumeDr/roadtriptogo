@@ -1,21 +1,21 @@
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center" data-controller="icon">
   <div class="mini-navbar">
-    <div class="item">
+    <div class="item" data-icon-target="map">
       <%= link_to project_path(@project) do %>
-        <i class="fas fa-map" ></i>
+        <i class="fas fa-map" data-action="click->icon#mapActive"></i>
       <% end %>
     </div>
-    <div class="item">
+    <div class="item" data-icon-target="calendar">
       <%= link_to project_events_path(@project) do %>
         <i class="fas fa-calendar-alt"></i>
       <% end %>
     </div>
-    <div class="item">
+    <div class="item" data-icon-target="todolist">
       <%= link_to project_todolist_path(@project, @todolist) do %>
         <i class="fas fa-tasks"></i>
       <% end %>
     </div>
-    <div class="item">
+    <div class="item" data-icon-target="chat">
       <%= link_to chatroom_path(@chatroom) do %>
         <i class="fas fa-comments" ></i>
       <% end %>
