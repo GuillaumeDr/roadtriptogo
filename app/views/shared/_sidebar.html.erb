@@ -66,9 +66,9 @@
       <span class="tooltip">Setting</span>
     </li>
     <li class="profile">
-      <a href="<%=destroy_user_session_path%>">
-      <i class='bx bx-log-out' id="log_out" ></i>
-      </a>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class='bx bx-log-out' id="log_out" ></i>
+      <% end %>
     </li>
   </ul>
 </div>
