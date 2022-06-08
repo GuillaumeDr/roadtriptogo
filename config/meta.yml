@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "RoadTripToGo"
+meta_title: "Roadtriptogo - Web site to organize road trip"
+meta_description: "Web site to organize road trip"
+meta_image: "RoadtripToGo.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
