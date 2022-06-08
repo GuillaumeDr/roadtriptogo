@@ -5,12 +5,12 @@
   <div class="container container-event d-flex">
 
     <div class="container calendar" data-controller="flatpickr">
-      <input type="date" class="form-control form-control-solid" id="date-event" name="trip-start" value="<%=@events.first.date unless @events.empty? %>">
+      <input type="date" class="form-control form-control-solid" id="date-event" name="trip-start" value="<%=@steps.first.start_date%>" data-start=" <%=@project_date_start%>"  data-end=" <%=@project_end_start%>" data-flatpickr-target="calendar">
     </div>
 
     <div class="container events" data-controller="date">
       <div class="container d-flex justify-content-center">
-        <H3>Programme du jour</H3>
+        <H3 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %> </H3>
       </div>
 
       <div class=" container d-flex justify-content-center", id="logement">
@@ -80,7 +80,7 @@
     </div>
 
       <!-- Modal -->
-    <div id="event_date">
+    <div id="event_date" data-controller="form modal">
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content width-modal">

@@ -16,12 +16,12 @@ import "controllers"
 import "bootstrap"
 
 // app/javascript/packs/application.js
-import { initModal } from "components/modal";
+// import { initModal } from "components/modal";
 // import { initFlatpickr } from "../plugins/flatpickr";
-import { initSidebar} from "components/sidebar";
-initSidebar();
-import { initForm} from "components/form";
-initForm ();
+// import { initSidebar} from "components/sidebar";
+// initSidebar();
+// import { initForm} from "components/form";
+// initForm ();
 // import { initDateEvent} from "components/date";
 // initDateEvent ();
 // import { initTodolist} from "components/todolist";
@@ -30,5 +30,5 @@ initForm ();
 
 document.addEventListener('turbolinks:load', () => {
   // initFlatpickr();
-  initModal();
+  // initModal();
 })
