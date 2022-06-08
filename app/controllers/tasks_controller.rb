@@ -27,8 +27,7 @@ class TasksController < ApplicationController
     @todolist = Todolist.find(params[:todolist_id])
 
     @task.update(status: params[:status])
-    render json: {message: 'wohooo'}
-
+    redirect_to project_todolist_path(@project, @todolist)
   end
 
   private
