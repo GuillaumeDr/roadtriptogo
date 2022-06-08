@@ -29,3 +29,17 @@
     </div>
   </div>
   <% end %>
+
+    <div>
+    <h5 class="mt-3">Collaborateurs</h5>
+    <% @collaborators.each do |collabo| %>
+      <div >
+        <% if collabo.user.photo.attached? %>
+          <%= cl_image_tag collabo.user.photo.key, class: "avatar", id:"img", width:45%>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?ixlib=rb-1.2.1&raw_url=tr[…]MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580",class: "avatar", id:"img", width:45  %>
+        <% end %>
+        <%= collabo.user.first_name.capitalize %> <%= collabo.user.last_name.capitalize %>
+      </div>
+    <% end %>
+  </div>
