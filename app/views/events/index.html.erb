@@ -10,12 +10,12 @@
 
     <div class="container events" data-controller="date">
       <div class="container d-flex justify-content-center">
-        <H3 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %> </H3>
+        <i class="fas fa-caret-left" id="previous"></i> <H3 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %> </H3><i class="fas fa-caret-right" id="next"></i>
       </div>
 
       <div class=" container d-flex justify-content-center", id="logement">
         <div class="event-type">
-          <i id="fontawesome", class="fas fa-bed">  Logement</i>
+          <i id="fontawesome", class="fas fa-bed" ><h6 style="font-family: Open sans">Logement</h6></i>
           <% @events.each do |event| %>
             <% if  event.event_type == "Logements" %>
               <div class="container event" data-date-event=<%=event.date%>>

@@ -6,7 +6,9 @@ export default class extends Controller {
   connect() {
     let dateForm = document.querySelector(".date");
     const dateNewEvent = document.getElementsByName("event[date]")[0]
-    console.log(dateNewEvent.value)
+
+    const next = document.getElementById("next")
+
 
     if (dateForm){
       const displayCard = (cards, selected_date) => {
@@ -19,6 +21,7 @@ export default class extends Controller {
       }
       const date = document.getElementById("date-event")
       const  cardEvents = document.querySelectorAll('.event')
+
       let date_select = date.value
       dateNewEvent.value = date_select
 
@@ -27,17 +30,28 @@ export default class extends Controller {
       date.addEventListener("change", (event) => {
         date.value = event.target.value
         date_select = date.value
+
         const jour = document.getElementById("date_jour")
         const newDate = new Date(date_select)
 
-        // jour.insertAdjacentHTML("beforeend", ` ${newDate.toLocaleDateString()}`)
         jour.innerHTML = `Programme du ${newDate.toLocaleDateString()}`
         dateNewEvent.value = date_select
 
         displayCard(cardEvents, date_select)
       });
+
+      next.addEventListener("click", (event) => {
+        const selected = document.querySelector(".flatpickr-day.selected")
+        const nextDay = selected.nextElementSibling
+        nextDay.click();
+      });
+      previous.addEventListener("click", (event) => {
+        const selected = document.querySelector(".flatpickr-day.selected")
+        const previousDay = selected.previousElementSibling
+        previousDay.click();
+      });
     }
 
 
-  }
+  };
 }
