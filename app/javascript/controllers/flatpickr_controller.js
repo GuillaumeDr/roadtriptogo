@@ -12,7 +12,7 @@ export default class extends Controller {
           showMonths: 1,
           inline: true,
           static: true,
-          dateFormat: "d-m-Y"
+          dateFormat: "d-m-Y",
       });
 
       let form = document.querySelector(".form");

@@ -9,9 +9,7 @@
       <%= f.input :event_type, label:"Type d'évenement", collection: Event::EVENT_TYPE, :prompt => 'Quel type ?' %>
       <%= f.input :duration, label:"Créneau horaire", collection: Event::EVENT_DURATION, :prompt => 'Quel créneau horaire ?' %>
       <%= f.input :name, label: "Nom" %>
-      <%= f.input :address, label: "Adresse" %>
       <%= f.input :price, label: "Prix (en €) " %>
-      <%= f.input :description, label: "Description" %>
       <div class="d-flex justify-content-center">
       <%= f.input :date, as: :hidden, input_html: {value: ""}%>
       </div>
