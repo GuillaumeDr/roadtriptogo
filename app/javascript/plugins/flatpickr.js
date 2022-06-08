@@ -14,8 +14,6 @@ const initFlatpickr = () => {
   let form = document.querySelector(".form");
   if (form){
     flatpickr("#date-event", {
-      minDate: "today",
-      showMonths: 1,
       inline: true,
       static: true,
     });
