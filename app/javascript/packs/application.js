@@ -17,18 +17,18 @@ import "bootstrap"
 
 // app/javascript/packs/application.js
 import { initModal } from "components/modal";
-import { initFlatpickr } from "../plugins/flatpickr";
+// import { initFlatpickr } from "../plugins/flatpickr";
 import { initSidebar} from "components/sidebar";
 initSidebar();
 import { initForm} from "components/form";
 initForm ();
-import { initDateEvent} from "components/date";
-initDateEvent ();
+// import { initDateEvent} from "components/date";
+// initDateEvent ();
 // import { initTodolist} from "components/todolist";
 // initTodolist ();
 
 
 document.addEventListener('turbolinks:load', () => {
-  initFlatpickr();
+  // initFlatpickr();
   initModal();
 })

@@ -4,11 +4,11 @@
 <div class="form date">
   <div class="container container-event d-flex">
 
-    <div class="container calendar">
+    <div class="container calendar" data-controller="flatpickr">
       <input type="date" class="form-control form-control-solid" id="date-event" name="trip-start" value="<%=@events.first.date unless @events.empty? %>">
     </div>
 
-    <div class="container events">
+    <div class="container events" data-controller="date">
       <div class="container d-flex justify-content-center">
         <H3>Programme du jour</H3>
       </div>

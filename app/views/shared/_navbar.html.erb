@@ -6,11 +6,7 @@
       <% end %>
       <% if user_signed_in? %>
         <li class="nav-item dropdown d-flex">
-          <%= link_to "My projects", "#", class: "project-links dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Last project", "#", class: "dropdown-item" %>
-            <%= link_to "All my projects", myprojects_path, class: "dropdown-item" %>
-          </div>
+          <%= link_to "My projects", myprojects_path , class: "project-links", id: "navbarDropdown" %>
         </li>
       <% end %>
     </div>
