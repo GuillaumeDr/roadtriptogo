@@ -1,14 +1,15 @@
 <%= render 'shared/sidebar' %>
-
-<%= simple_form_for [project, step] do |f| %>
-      <%= f.input :city, placeholder: 'Ville', label: false %>
-      <div class="d-flex justify-content-center">
-        <%= f.input :start_date, label: false,
-                                  as: :string,
-                                  required: false,
-                                  input_html: {class: "datepicker d-none"} %>
-      </div>
-      <div class="d-grid gap-2">
-      <%= f.submit "Continue", class: "btn-principal" %>
-      </div>
-<% end %>
+<div data-controller="flatpickr">
+  <%= simple_form_for [project, step] do |f| %>
+        <%= f.input :city, placeholder: 'Ville', label: false %>
+        <div class="d-flex justify-content-center">
+          <%= f.input :start_date, label: false,
+                                    as: :string,
+                                    required: false,
+                                    input_html: {class: "datepicker d-none"} %>
+        </div>
+        <div class="d-grid gap-2">
+        <%= f.submit "Continue", class: "btn-principal" %>
+        </div>
+  <% end %>
+</div>

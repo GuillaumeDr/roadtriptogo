@@ -8,6 +8,8 @@ class EventsController < ApplicationController
     @todolist = Todolist.find_by(project_id: @project.id)
     @steps = @project.steps
     @events = @project.events
+    @project_date_start = @steps.first.start_date
+    @project_end_start = @steps.last.end_date
   end
 
   def create

@@ -13,10 +13,7 @@
       <%= f.input :price, label: "Prix (en €) " %>
       <%= f.input :description, label: "Description" %>
       <div class="d-flex justify-content-center">
-      <%= f.input :date, label: false,
-                              as: :string,
-                              required: false,
-                              input_html: {class: "datepicker d-none"} %>
+      <%= f.input :date, as: :hidden, input_html: {value: ""}%>
       </div>
       <div class="d-grid gap-2">
         <%= f.submit class: "btn btn-principal" %>
@@ -30,10 +27,7 @@
       <%= f.association :step,  label: "Quelle étape ?", collection: Step.where(project: @project).order(:city), prompt: "Choose a Step", label_method: :city%>
       <%= f.input :description, label: "Description" %>
       <div class="d-flex justify-content-center">
-      <%= f.input :date, label: false,
-                              as: :string,
-                              required: false,
-                              input_html: {class: "datepicker d-none"} %>
+      <%= f.input :date, as: :hidden, input_html: {value: ""}%>
       </div>
       <div class="d-grid gap-2">
         <%= f.submit class: 'btn btn-principal' %>
