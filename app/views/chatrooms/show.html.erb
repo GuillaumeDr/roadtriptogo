@@ -1,39 +1,48 @@
 <%= render 'shared/mininavbar' %>
 <%= render 'shared/sidebar' %>
 
-<div class="container chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
->
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+<div class="container d-flex justify-content-between">
+  <div class="chatroom"
+    data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+    <div class="messages" data-chatroom-subscription-target="messages">
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    <%= simple_form_for [@chatroom, @message],
+      remote: true,
+      html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
+    %>
+    <div class="d-flex justify-content-between" style = "width: 100%;">
+      <div style = "width: 85%;">
+        <%= f.input :content,
+          label: false,
+          placeholder: "Ecrire dans ##{@chatroom.name}",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+      </div>
+      <div>
+        <%= f.submit "Send", class: "btn-principal" %>
+      </div>
+    </div>
     <% end %>
   </div>
-</div>
-
-  <%= simple_form_for [@chatroom, @message],
-    remote: true,
-    html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
-  %>
-  <div class="container d-flex justify-content-between">
-    <div style = "width: 90%;">
-      <%= f.input :content,
-        label: false,
-        placeholder: "Ecrire dans ##{@chatroom.name}",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
+  <div class="chat-card">
+    <div class="chat-user">
+      <div>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?ixlib=rb-1.2.1&raw_url=tr[…]MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580",class: "avatar" %>
+        <% end %>
+      </div>
+      <div>
+        <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
+      </div>
     </div>
-    <div>
-      <%= f.submit "Send", class: "btn-principal" %>
-    </div>
-  </div>
-  <% end %>
-
-    <div>
-    <h5 class="mt-3">Collaborateurs</h5>
     <% @collaborators.each do |collabo| %>
-      <div >
+      <div class="chat-collaborator">
         <% if collabo.user.photo.attached? %>
           <%= cl_image_tag collabo.user.photo.key, class: "avatar", id:"img", width:45%>
         <% else %>
@@ -43,3 +52,4 @@
       </div>
     <% end %>
   </div>
+</div>
