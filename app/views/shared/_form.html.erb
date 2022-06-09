@@ -1,7 +1,7 @@
 <div class="container-fluid form">
 
-<input type="radio" name="post_type" value="event" id="event-btn"/> Event
-<input type="radio" name="post_type" value="note" id="note-btn"/> Note
+  <input type="radio" name="post_type" value="event" id="event-btn"/> Event
+  <input type="radio" name="post_type" value="note" id="note-btn"/> Note
 
   <div id="event" class="d-none">
     <%= simple_form_for [@project, @event] do |f| %>
@@ -10,9 +10,7 @@
       <%= f.input :duration, label:"Créneau horaire", collection: Event::EVENT_DURATION, :prompt => 'Quel créneau horaire ?' %>
       <%= f.input :name, label: "Nom" %>
       <%= f.input :price, label: "Prix (en €) " %>
-      <div class="d-flex justify-content-center">
       <%= f.input :date, as: :hidden, input_html: {value: ""}%>
-      </div>
       <div class="d-grid gap-2">
         <%= f.submit class: "btn btn-principal" %>
       </div>
@@ -21,12 +19,10 @@
 
   <div id="note" class="d-none">
     <%= simple_form_for [@project, @event] do |f| %>
-      <% f.input :event_type, input_html: {value: 'Notes'} %>
+      <%= f.input :event_type, as: :hidden, input_html: {value: 'Notes'} %>
       <%= f.association :step,  label: "Quelle étape ?", collection: Step.where(project: @project).order(:city), prompt: "Choose a Step", label_method: :city%>
       <%= f.input :description, label: "Description" %>
-      <div class="d-flex justify-content-center">
       <%= f.input :date, as: :hidden, input_html: {value: ""}%>
-      </div>
       <div class="d-grid gap-2">
         <%= f.submit class: 'btn btn-principal' %>
       </div>

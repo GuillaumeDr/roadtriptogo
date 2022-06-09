@@ -4,11 +4,11 @@
 <div class="form date">
   <div class="container container-event d-flex">
 
-    <div class="container calendar" data-controller="flatpickr">
+    <div class="calendar" data-controller="flatpickr">
       <input type="date" class="form-control form-control-solid" id="date-event" name="trip-start" value="<%=@steps.first.start_date%>" data-start=" <%=@project_date_start%>"  data-end=" <%=@project_end_start%>" data-flatpickr-target="calendar">
     </div>
 
-    <div class="container events" data-controller="date">
+    <div class=" events" data-controller="date">
       <div class="container d-flex justify-content-center">
         <i class="fas fa-caret-left" id="previous"></i> <H3 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %> </H3><i class="fas fa-caret-right" id="next"></i>
       </div>
@@ -60,18 +60,18 @@
 
       <div class="container d-flex justify-content-center", id="notes">
         <div class="event-type">
-        <i id="fontawesome", class="fas fa-comment-dots">  Notes</i>
+        <i id="fontawesome", class="fas a-comment-dots">   Notes</i>
           <% @events.each do |event| %>
             <% if  event.event_type == "Notes" %>
               <div class="container event" data-date-event=<%=event.date%>>
-                  <li class="list-unstyled"><%= event.description %></li>
+                <li class="list-unstyled"><%= event.description %></li>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
 
-      <div class="container d-flex justify-content-center">
+      <div>
         <button type="button" class="btn-principal" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fa fa-plus"></i>
         </button>
@@ -92,3 +92,5 @@
 
   </div>
 </div>
+
+<%= console %>
