@@ -13,15 +13,19 @@ export default class extends Controller {
       const step = [marker.lng, marker.lat]
       this.steps += `${step};`
     })
+
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
-    this.#addMarkersToMap();
-    this.#fitMapToMarkers();
-    this.#addRoute();
+    this.map.on('load', () => {
+      this.#addMarkersToMap();
+      this.#fitMapToMarkers();
+      this.#addRoute();
+    });
+
   }
 
 
@@ -88,6 +92,7 @@ export default class extends Controller {
 
         //
     }
-
   }
+
+
 }

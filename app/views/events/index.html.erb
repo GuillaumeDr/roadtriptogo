@@ -2,83 +2,106 @@
 <%= render 'shared/mininavbar' %>
 
 <div class="form date">
-  <div class="container container-event d-flex">
 
+  <div class=" container d-flex justify-content-around mt-3 mb-3" >
+    <div>
+      <i class="fas fa-caret-left arrow-event" id="previous"></i>
+    </div>
+    <div>
+      <H3 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %></H3>
+    </div>
+    <div>
+      <i class="fas fa-caret-right arrow-event" id="next"></i>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-between">
     <div class="calendar" data-controller="flatpickr">
       <input type="date" class="form-control form-control-solid" id="date-event" name="trip-start" value="<%=@steps.first.start_date%>" data-start=" <%=@project_date_start%>"  data-end=" <%=@project_end_start%>" data-flatpickr-target="calendar">
     </div>
 
-    <div class=" events" data-controller="date">
-      <div class="container d-flex justify-content-center">
-        <i class="fas fa-caret-left" id="previous"></i> <H3 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %> </H3><i class="fas fa-caret-right" id="next"></i>
-      </div>
 
-      <div class=" container d-flex justify-content-center", id="logement">
+    <div data-controller="date">
+      <div id="logement">
         <div class="event-type">
-          <i id="fontawesome", class="fas fa-bed" ><h6 style="font-family: Open sans">Logement</h6></i>
+          <div class= "d-flex ">
+            <i id="fontawesome", class="fas fa-bed" ></i>
+            <h6 class="eventtitre">Logement</h6>
+          </div>
           <% @events.each do |event| %>
             <% if  event.event_type == "Logements" %>
-              <div class="container event" data-date-event=<%=event.date%>>
-                  <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
-                  <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
-                  <li class="list-unstyled"><br></li>
+              <div class="event" data-date-event=<%=event.date%>>
+                  <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %> <%= event.address %></li>
+                  <li class="list-unstyled">Prix: <%= event.price %>€</li>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
 
-      <div class="container d-flex justify-content-center", id="restaurant">
+      <div id="restaurant">
         <div class="event-type">
-          <i id="fontawesome", class="fas fa-utensils">  Restaurant</i>
+          <div class= "d-flex ">
+            <i id="fontawesome", class="fas fa-utensils" ></i>
+            <h6 class="eventtitre">Restaurant</h6>
+          </div>
           <% @events.each do |event| %>
             <% if  event.event_type == "Restaurants" %>
-              <div class="container event" data-date-event=<%=event.date%>>
+              <div class="event" data-date-event=<%=event.date%>>
                 <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
-                <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
-                <li class="list-unstyled"><br></li>
+                <li class="list-unstyled">Prix: <%= event.price %>€ </li>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
 
-      <div class="container d-flex justify-content-center", id="activités">
+      <div class="", id="activités">
         <div class="event-type">
-        <i id="fontawesome", class="fas fa-running">   Activités</i>
+          <div class= "d-flex ">
+            <i id="fontawesome", class="fas fa-running" ></i>
+            <h6 class="eventtitre">Activités</h6>
+          </div>
           <% @events.each do |event| %>
             <% if  event.event_type == "Activités" %>
-              <div class="container event" data-date-event=<%=event.date%>>
+              <div class="event" data-date-event=<%=event.date%>>
                 <li class="list-unstyled"> <strong><%= event.duration.capitalize %></strong>: <%=event.name %>, <%= event.address %></li>
-                <li class="list-unstyled">Prix: <%= event.price %>€ - <%= event.description %></li>
-                <li class="list-unstyled"><br></li>
+                <li class="list-unstyled">Prix: <%= event.price %>€</li>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
 
-      <div class="container d-flex justify-content-center", id="notes">
+      <div class="", id="notes">
         <div class="event-type">
-        <i id="fontawesome", class="fas a-comment-dots">   Notes</i>
-          <% @events.each do |event| %>
+
+          <div class= "d-flex ">
+            <i id="fontawesome", class="fas fa-comment-dots" ></i>
+            <h6 class="eventtitre">Notes</h6>
+          </div>
+           <% @events.each do |event| %>
             <% if  event.event_type == "Notes" %>
-              <div class="container event" data-date-event=<%=event.date%>>
-                <li class="list-unstyled"><%= event.description %></li>
+              <div class="event" data-date-event=<%=event.date%>>
+                  <li class="list-unstyled"><%= event.description %></li>
+
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
 
-      <div>
+
+      <div class="d-flex justify-content-center">
         <button type="button" class="btn-principal" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fa fa-plus"></i>
+
         </button>
       </div>
 
     </div>
 
+
+  </div>
       <!-- Modal -->
     <div id="event_date" data-controller="form modal">
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,8 +112,10 @@
         </div>
       </div>
     </div>
+</div>
 
-  </div>
+<div class="chart">
+  <%= pie_chart(@project.get_data, donut: true, colors: ["#8FC1D4", "#FFB84E", "#82954B"]) %>
 </div>
 
 <%= console %>
