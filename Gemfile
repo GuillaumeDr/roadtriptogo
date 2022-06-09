@@ -39,6 +39,9 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 #map
 gem "geocoder"
 
+#chart budget
+gem "chartkick"
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
