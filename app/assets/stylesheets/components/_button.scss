@@ -51,3 +51,20 @@
   background: #7d792e;
   color: white;
 }
+
+
+.btn-tab{
+  color: #8A8635;
+  width : 49%;
+  background-color: white;
+  padding: 6px 18px;
+  border-radius: 2px;
+  border: 1px solid #8A8635;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.btn-tab:hover {
+  background: #8A8635;
+  color: white;
+}
