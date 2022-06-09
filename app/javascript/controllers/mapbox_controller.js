@@ -13,6 +13,7 @@ export default class extends Controller {
       const step = [marker.lng, marker.lat]
       this.steps += `${step};`
     })
+
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
