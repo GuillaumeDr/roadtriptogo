@@ -5,7 +5,9 @@ export default class extends Controller {
 
   connect() {
     let dateForm = document.querySelector(".date");
-    const dateNewEvent = document.getElementsByName("event[date]")[0, 1]
+    const dateNewEvent = document.getElementsByName("event[date]")[0]
+    const dateNewNote = document.getElementsByName("event[date]")[1]
+
 
     const next = document.getElementById("next")
     const previous = document.getElementById("previous")
@@ -25,6 +27,7 @@ export default class extends Controller {
 
       let date_select = date.value
       dateNewEvent.value = date_select
+      dateNewNote.value = date_select
 
       displayCard(cardEvents, date_select)
 
@@ -38,6 +41,7 @@ export default class extends Controller {
         jour.innerHTML = `Programme du ${newDate.toLocaleDateString()}`
         console.log(dateNewEvent.value)
         dateNewEvent.value = date_select
+        dateNewNote.value = date_select
 
         displayCard(cardEvents, date_select)
       });
