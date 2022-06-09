@@ -1,0 +1,16 @@
+<div class="tasks">
+
+  <%= form_with url: project_todolist_task_path(@project, @todolist, task) do |form| %>
+    <div class="checkbox">
+      <%= form.check_box :status,
+                          data: {
+                            id: task.id,
+                            project: @project.id,
+                            todolist: @todolist.id,
+                            action: "todo#update"
+                          },
+                          checked: task.status %>
+    </div>
+    <div class="description"><%= task.description %></div>
+  <% end %>
+</div>

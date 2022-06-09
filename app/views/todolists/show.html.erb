@@ -11,21 +11,8 @@
     <div class="todo" data-todo-target="undone">
       <% @tasks.each do |task| %>
         <% unless task.status %>
-          <div class="tasks" data-controller="tasks">
-            <%= form_with url: project_todolist_task_path(@project, @todolist, task) do |form| %>
-              <div class="checkbox">
-              <%= form.check_box :status,
-                                  data: {
-                                    id: task.id,
-                                    project: @project.id,
-                                    todolist: @todolist.id,
-                                    action: "tasks#update"
-                                  },
-                                  checked: task.status %>
-              </div>
-              <div class="description"><%= task.description %></div>
-            <% end %>
-          </div>
+            <%= render "tasks/form", project: @project, todolist: @todolist, task: task %>
+
 
         <% end %>
       <% end %>
@@ -48,21 +35,8 @@
     <div class="completed d-none" data-todo-target="done">
       <% @tasks.each do |task| %>
         <% if task.status %>
-          <div class="tasks" data-controller="tasks">
-            <%= form_with url: project_todolist_task_path(@project, @todolist, task) do |form| %>
-              <div class="checkbox">
-              <%= form.check_box :status,
-                                  data: {
-                                    id: task.id,
-                                    project: @project.id,
-                                    todolist: @todolist.id,
-                                    action: "tasks#update"
-                                  },
-                                  checked: task.status %>
-              </div>
-              <div class="description"><%= task.description %></div>
-            <% end %>
-          </div>
+            <%= render "tasks/form", project: @project, todolist: @todolist, task: task %>
+
         <% end %>
       <% end %>
     </div>
