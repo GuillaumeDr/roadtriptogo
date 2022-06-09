@@ -108,3 +108,9 @@
       </div>
     </div>
 </div>
+
+<div class="chart">
+  <%= pie_chart(@project.get_data, donut: true, colors: ["#8FC1D4", "#FFB84E", "#82954B"]) %>
+</div>
+
+<%= console %>
