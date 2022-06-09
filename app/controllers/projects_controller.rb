@@ -28,6 +28,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @users = User.where.not(id: current_user.id)
+
     @project = Project.new(project_params)
     if @project.save
       @traveler = Traveler.new

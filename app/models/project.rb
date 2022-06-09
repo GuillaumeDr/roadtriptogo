@@ -7,6 +7,8 @@ class Project < ApplicationRecord
   has_one :chatroom, dependent: :destroy
   has_one_attached :photo
 
+  validates :name, presence: true
+
   attr_accessor :collab
 
   PROJECT_SEASON = ['automne', 'hiver', 'printemps', 'été']

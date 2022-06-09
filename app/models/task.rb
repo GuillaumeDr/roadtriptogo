@@ -1,6 +1,8 @@
 class Task < ApplicationRecord
   belongs_to :todolist
 
+  validates :description, presence: true
+
   TODOLIST_ETE_VOITURE = ['guide de voyage', "documents d'identité (passeport, carte d'identité)", 'documents de réservation', 'carte bancaire', 'permis de conduire', 'carte grise', "vérifier l'état de la voiture (pression des pneus, niveau d'huile, liquide de freins...", 'lampe torche', 'carte routière', 'mots fléchés', 'lunettes de soleil', 'chapeau / casquette / bob', 'crème solaire', 'slip de bain', 'brumisateur', 'sandales / tongs', 'paréo']
   TODOLIST_ETE_AVION = ['guide de voyage', "documents d'identité (passeport, carte d'identité)", 'documents de réservation', 'carte bancaire', 'réserver le vol', 'se renseigner sur les visas / vaccins', "carte d'embarquement", 'masque / boules Quies', 'mots fléchés', 'lunettes de soleil', 'chapeau / casquette / bob', 'crème solaire', 'slip de bain', 'brumisateur', 'sandales / tongs', 'paréo']
   TODOLIST_ETE_TRAIN = ['guide de voyage', "documents d'identité (passeport, carte d'identité)", 'documents de réservation', 'carte bancaire', 'réserver le train', 'billet de train', 'mots fléchés', 'lunettes de soleil', 'chapeau / casquette / bob', 'crème solaire', 'slip de bain', 'brumisateur', 'sandales / tongs', 'paréo']
