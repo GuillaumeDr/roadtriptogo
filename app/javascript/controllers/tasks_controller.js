@@ -8,16 +8,13 @@ export default class extends Controller {
         const todolist_id = e.target.dataset.todolist
         const csrfToken = document.querySelector("[name='csrf-token']").content
         const url = `/projects/${project_id}/todolists/${todolist_id}/tasks/${id}`
+        this.element.outerHTML = ""
 
         fetch(url, {
             method: 'PATCH', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-Token': csrfToken
-
             },
             body: JSON.stringify({ status: e.target.checked }) // body data type must match "Content-Type" header
         })
