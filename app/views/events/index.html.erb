@@ -8,7 +8,7 @@
       <i class="fas fa-caret-left arrow-event" id="previous"></i>
     </div>
     <div>
-      <H3 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %></H3>
+      <h4 id="date_jour">Programme du <%= @steps.first.start_date.strftime("%d/%m/%Y") %></h4>
     </div>
     <div>
       <i class="fas fa-caret-right arrow-event" id="next"></i>
@@ -97,10 +97,7 @@
 
         </button>
       </div>
-
     </div>
-
-
   </div>
       <!-- Modal -->
     <div id="event_date" data-controller="form modal">
@@ -112,10 +109,8 @@
         </div>
       </div>
     </div>
+  <div class="chart">
+  <h5>Budget</h5>
+    <%= pie_chart(@project.get_data, donut: true, colors: ["#8FC1D4", "#FFB84E", "#82954B"], legend: false) %>
+  </div>
 </div>
-
-<div class="chart">
-  <%= pie_chart(@project.get_data, donut: true, colors: ["#8FC1D4", "#FFB84E", "#82954B"]) %>
-</div>
-
-<%= console %>
