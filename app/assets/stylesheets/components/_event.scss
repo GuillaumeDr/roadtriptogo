@@ -1,6 +1,6 @@
 .event-type{
   // margin: 15px 0;
-  width: 530px;
+  width: 500px;
 }
 
 .event-card{
@@ -8,7 +8,7 @@
 }
 
 .event{
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Open sans";
   margin-bottom: 4px;
 }
@@ -71,6 +71,11 @@ padding: 0px 30px;
 .calendar{
   padding-left: 40px;
   padding-right: 0px;
+  h6 {
+    margin-top: 30px;
+    margin-left: 47px;
+    font-weight: 600;
+  }
 }
 
 
@@ -83,13 +88,4 @@ padding: 0px 30px;
 .arrow-event:hover {
   color: #605d24;
 
-}
-
-.container-chart {
-  width: 400px;
-  margin: 50px 0 40px 230px;
-  h5 {
-    text-align: center;
-    font-weight: 600;
-  }
 }
