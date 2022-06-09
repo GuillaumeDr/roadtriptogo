@@ -14,13 +14,13 @@
       <i class="fas fa-caret-right arrow-event" id="next"></i>
     </div>
   </div>
-  <div class="container d-flex justify-content-between">
+  <div class="container d-flex justify-content-between" style="margin-top: 30px;">
     <div class="calendar" data-controller="flatpickr">
       <input type="date" class="form-control form-control-solid" id="date-event" name="trip-start" value="<%=@steps.first.start_date%>" data-start=" <%=@project_date_start%>"  data-end=" <%=@project_end_start%>" data-flatpickr-target="calendar">
     </div>
 
 
-    <div data-controller="date">
+    <div class="event-card" data-controller="date">
       <div id="logement">
         <div class="event-type">
           <div class= "d-flex ">
@@ -109,8 +109,8 @@
         </div>
       </div>
     </div>
-  <div class="chart">
-  <h5>Budget</h5>
-    <%= pie_chart(@project.get_data, donut: true, colors: ["#8FC1D4", "#FFB84E", "#82954B"], legend: false) %>
+  <div class="container-chart">
+  <h5>Répartition du budget :</h5>
+    <%= pie_chart(@project.get_data, donut: true, colors: ["#8FC1D4", "#FFB84E", "#82954B"], legend: "bottom") %>
   </div>
 </div>
