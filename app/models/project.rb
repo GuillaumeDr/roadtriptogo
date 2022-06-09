@@ -19,7 +19,7 @@ class Project < ApplicationRecord
   def get_data
     data = Hash.new(0)
     events.each do |event|
-      data[event.event_type] += event.price
+      data[event.event_type] += event.price if event.price != nil
     end
     data
   end
