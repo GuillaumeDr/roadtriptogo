@@ -1,22 +1,32 @@
 .event-type{
-  width: 700Px;
-  margin: 15px 0;
+  // margin: 15px 0;
+  width: 400px;
+}
+
+.event{
+  font-size: 12px;
+  font-family: "Open sans";
+  margin-bottom: 4px;
 }
 
 .events h3{
-font-family: "Poppins";
+font-family: "Open sans";
 margin-bottom: 25px;
-// width: 300px;
 font-weight: 450;
 padding: 0px 30px;
+}
+
+.eventtitre{
+  font-family: "Open sans";
+  margin-left: 3px;
+  font-weight: bold;
 }
 
 #logement > .event-type{
   border-right: solid 10px #8FC1D4;
   #fontawesome {
     color:#8FC1D4;
-    font-size: 30px;
-    padding-bottom: 20px;
+    font-size: 20px;
   }
 }
 
@@ -24,8 +34,7 @@ padding: 0px 30px;
   border-right: solid 10px #FFB84E;
   #fontawesome {
     color:#FFB84E;
-    font-size: 30px;
-    padding-bottom: 20px;
+    font-size: 20px;
   }
 }
 
@@ -33,8 +42,7 @@ padding: 0px 30px;
   border-right: solid 10px #82954B;
   #fontawesome {
     color:#82954B;
-    font-size:30px;
-    padding-bottom: 20px;
+    font-size:20px;
   }
 }
 
@@ -42,8 +50,7 @@ padding: 0px 30px;
   border-right: solid 10px #D06224;
   #fontawesome {
     color:#D06224;
-    font-size: 30px;
-    padding-bottom: 20px;
+    font-size: 20px;
   }
 }
 
@@ -52,7 +59,7 @@ padding: 0px 30px;
 }
 
 .container-event{
-  margin: 55px 0px 10px 150px;
+  margin: 0px 0px 10px 150px;
   padding: 0px;
   width: 100%;
 }
@@ -60,4 +67,16 @@ padding: 0px 30px;
 .calendar{
   padding-left: 40px;
   padding-right: 0px;
+}
+
+
+.arrow-event{
+  font-size: 40px;
+  color: #8A8635;
+  transition: background 0.3s ease;
+}
+
+.arrow-event:hover {
+  color: #605d24;
+
 }
